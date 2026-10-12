@@ -214,12 +214,13 @@ title = ("Rethinking FLAN-T5 for Grammatical Error Correction: Controlled Baseli
          "and Two-Stage Transfer with Little Human Data")
 set_par(PAR[1], title)
 
+HUMAN_BEA = VC["T4|human_data_stage|bea_dev"]["delta"]
 abstract = (
     "Grammatical error correction (GEC) systems are usually built from large models and millions of human-corrected "
     "sentences. We study what a compact 77-million-parameter FLAN-T5-small model achieves with synthetic data and only "
     "32,600 human-annotated training pairs, and which design choices matter. Under one pipeline, FLAN-T5-small outperforms TF-IDF, "
     "LSTM and pointer-generator baselines. Full-budget ablations with two training seeds and paired bootstrap tests show "
-    "that fine-tuning on human learner data is the dominant factor (+0.15 F0.5 on BEA-2019 development), and that a "
+    f"that fine-tuning on human learner data is the dominant factor (+{HUMAN_BEA:.2f} F0.5 on BEA-2019 development), and that a "
     "confidence threshold adds a small but significant gain, whereas reference-side corpus cleaning, no-edit training "
     "pairs, iterative refinement and an explicit copy gate give no reliable improvement. The final system reaches an "
     f"F0.5 of {pct(N['test']['F05'])} on the blind BEA-2019 test set and {N['conll']['F05']:.3f} on CoNLL-2014 with "
@@ -238,6 +239,7 @@ def sub_runs(p, old, new):
 sub_runs(PAR[13], 'Grammar Error Correction (GEC)', 'Grammatical error correction (GEC)')
 sub_runs(PAR[54], 'one GLEU point', 'one point of machine-translation GLEU')
 sub_runs(PAR[34], 'for the enhanced system', 'for the systems of Section 5')
+sub_runs(PAR[3], 'School Communications', 'School of Communications')
 # ---------------------------------------------------------------- 1. Introduction
 set_par(PAR[14],
     "We first compare four model families on the same data, test sample and evaluation pipeline: a TF-IDF unigram and "
@@ -280,11 +282,12 @@ set_par(PAR[25], re.sub(r"We compare against these families quantitatively in Se
     "under one protocol.", PAR[25].text).replace("Models.", "**Models.**", 1))
 assert "Section 5.4 compares" in PAR[25].text, PAR[25].text[-300:]
 set_par(PAR[26],
-    f"**Evaluation and benchmarks.** The field scores corrections at the edit level with {F}, which weights precision "
-    "over recall, using the MaxMatch (M\u00b2) scorer for CoNLL-2014 [19] and the ERRor ANnotation Toolkit (ERRANT) [18] "
-    "for BEA-2019 [20]. The fluency benchmark JFLEG [21] uses GLEU [17], an n-gram metric adapted to GEC that rewards "
-    "n-grams matching the references and penalises n-grams that should have been changed. We use the W&I+LOCNESS "
-    "data [20]; NUCLE [22] is a further learner corpus we identify as future training data. These scorers are not "
+    "**Evaluation and benchmarks.** Fluency-oriented evaluation uses GLEU [17], an n-gram metric adapted to GEC that "
+    "rewards n-grams matching the references and penalises n-grams that should have been changed. Corrections are "
+    f"scored at the edit level with {F}, which weights precision over recall, using the ERRor ANnotation Toolkit "
+    "(ERRANT) [18] or the MaxMatch (M\u00b2) scorer, as in the CoNLL-2014 [19] and BEA-2019 [20] shared tasks; GLEU is "
+    "the official metric of the fluency benchmark JFLEG [21]. We use the W&I+LOCNESS data [20]; NUCLE [22] is a further "
+    "learner corpus we identify as future training data. These scorers are not "
     "interchangeable: M\u00b2 and ERRANT extract and match edits differently, and figures also depend on whether the "
     "development or the blind test split is used, so numbers from different protocols cannot be ranked against one "
     "another. We therefore score every system ourselves, with the official scorer of each benchmark, on the same split "
@@ -374,6 +377,9 @@ new_par_after(eq_boot, PAR[70],
 t73 = PAR[73].text
 t73 = t73.replace("the only model to beat the do-nothing GLEU baseline (0.636 versus 0.614)",
                   "the only model to beat the do-nothing baseline on corpus-level machine-translation GLEU (0.636 versus 0.614)")
+assert "showing that about 63% of the noise has a lexical signature, while the rest needs word order or longer-range context" in t73
+t73 = t73.replace("showing that about 63% of the noise has a lexical signature, while the rest needs word order or longer-range context",
+                  "so the noise is only partly separable at the bag-of-words level")
 t73 = t73.replace("F0.5", F)
 t73 = t73.replace("(Section 5.9)", "(Section 5.7)")
 t73 += " These are single runs, in the earlier training configuration (Section 5.8)."
@@ -390,7 +396,8 @@ set_par(PAR[76], "5.2 Which design choices matter? Full-budget ablations")
 set_par(PAR[77],
     "Table 4 tests each component at the full training budget (1,150,000 synthetic pairs, 8,985 steps, plus the "
     "human-data stage where stated), changing one factor at a time on the same split, schedule and decoder and scoring "
-    "four endpoints. Training-time factors are retrained from scratch, cleaning with two seeds; decode-time "
+    "four endpoints. Training-time factors are retrained from scratch, cleaning with two seeds (cleaned corpus of "
+    "Table 2 against the same sampling with only the identity and length filters of Table 1); decode-time "
     "factors reuse one checkpoint and are therefore exactly isolated.")
 c4, be, co = "c4", "bea_dev", "conll"
 def row(label, name, jf): return [label] + [cell(vc("T4", name, ep)) for ep in (c4, be, co)] + [jf]
@@ -421,9 +428,10 @@ txt_b = new_par_after(t4, PAR[96],
     "seeds on CoNLL-2014 and BEA-2019, and its magnitude never exceeds the difference between two identically "
     "configured clean runs that differ only in the random seed. What Section 3.2 removes is real noise, but at this "
     "budget the model is robust to it. Second, the no-edit pairs cost accuracy on every endpoint at stage 1, and after "
-    f"the human-data stage they still do not help (C4 {sg(T4['noedit_two_stage'][c4]['delta'])}, BEA-2019 "
-    f"{sg(T4['noedit_two_stage'][be]['delta'])}, CoNLL-2014 {sg(T4['noedit_two_stage'][co]['delta'])}, JFLEG "
-    f"{sg(JG['final_s2'] - JG['nogate_s2'])}); they are therefore unnecessary. Third, the human-data "
+    f"the human-data stage they lower in-domain accuracy (C4 {sg(T4['noedit_two_stage'][c4]['delta'])}) and do not help "
+    f"elsewhere (BEA-2019 {sg(T4['noedit_two_stage'][be]['delta'])}, CoNLL-2014 {sg(T4['noedit_two_stage'][co]['delta'])}, "
+    f"JFLEG {sg(JG['final_s2'] - JG['nogate_s2'])}); they are therefore unnecessary, although we keep them in the final "
+    "system, whose configuration was fixed before the blind-test evaluation. Third, the human-data "
     f"stage dominates every other factor, raising BEA-2019 development {F} by "
     f"{T4['human_data_stage'][be]['delta']:.3f} and CoNLL-2014 by "
     f"{T4['human_data_stage'][co]['delta']:.3f} while lowering the in-domain score by "
@@ -435,6 +443,10 @@ assert all(T4["refinement"][ep]["p_two_sided"] >= 0.05 for ep in (c4, be, co))  
 assert all(T4["length_penalty_0.7_vs_1.0"][ep]["p_two_sided"] >= 0.05 for ep in (c4, be, co))
 assert all(T4["threshold_tau0"][ep]["p_two_sided"] < 0.05 and T4["threshold_tau0"][ep]["delta"] > 0 for ep in (c4, be, co))
 assert all(T4["human_data_stage"][ep]["p_two_sided"] < 0.05 for ep in (c4, be, co))
+assert T4["noedit_two_stage"][c4]["delta"] < 0 and T4["noedit_two_stage"][c4]["p_two_sided"] < 0.05   # "lower in-domain accuracy"
+_p = [EV2[f"bea_dev|ref1_{k}"]["P"] for k in ("taunone", "tau0.0", "tau0.05", "tau0.1", "tau0.2")]
+assert _p[:4] == sorted(_p[:4]) and _p[4] < _p[3]                                     # "precision rises only up to 0.1"
+assert all(EV2[f"{b}|ref1_tau0.0"]["F05"] == max(EV2[f"{b}|ref1_{k}"]["F05"] for k in ("taunone", "tau0.0", "tau0.05", "tau0.1", "tau0.2")) for b in ("c4", "bea_dev", "conll"))
 gb = T4["copy_gate_earlier_config"]
 txt_c = new_par_after(txt_b, PAR[96],
     "The copy gate (Section 4.4) lowers accuracy on every endpoint "
@@ -452,11 +464,12 @@ txt_c = new_par_after(txt_b, PAR[96],
 set_par(PAR[78], "5.3 Over-correction and the precision dial")
 dial = [("none", "taunone"), ("0", "tau0.0"), ("0.05", "tau0.05"), ("0.1", "tau0.1"), ("0.2", "tau0.2")]
 set_par(PAR[79],
-    f"The threshold acts as a monotone precision and harm dial (Table 5): raising \u03c4 from no threshold to 0.2 cuts "
+    f"The threshold acts as a harm dial (Table 5): raising \u03c4 from no threshold to 0.2 cuts "
     f"the in-domain harm rate from {EV2['c4|ref1_taunone']['harm']:.1f}% to {EV2['c4|ref1_tau0.2']['harm']:.1f}% and raises "
     f"the share of unchanged outputs from {EV2['c4|ref1_taunone']['unchanged']:.0f}% to "
-    f"{EV2['c4|ref1_tau0.2']['unchanged']:.0f}%. The held-out-tuned value \u03c4 = 0 is the {F} optimum on every "
-    "benchmark; higher settings trade recall for safety in applications that need it. Harm is defined against a single "
+    f"{EV2['c4|ref1_tau0.2']['unchanged']:.0f}%, while BEA-2019 precision rises only up to \u03c4 = 0.1. The "
+    f"held-out-tuned value \u03c4 = 0 is the {F} optimum on all three {F} endpoints; higher settings trade recall for "
+    "safety in applications that need it. Harm is defined against a single "
     "synthetic reference by Eq. (11), where d is token-level edit distance, x the source, y the reference and \u0177 "
     "the prediction: an edited prediction is harmful when it is farther from the reference than the source, and lateral "
     "when it is exactly as far.")
@@ -515,7 +528,7 @@ ours_s1 = EV1
 rows6 = [["System", "Size", "HD", "CoNLL", "Dev", "Test", "JFLEG"],
          ["Do nothing", "\u2013", "\u2013", "0.000", "0.000", "\u2013", f3(JG["do_nothing"])],
          ["Qwen, 0-shot", "1.5B", "0", f3(q0["F05"]), f3(Q["bea_dev|zeroshot"]["F05"]), "\u2013", "\u2013"],
-         ["Qwen, 4-shot", "1.5B", "4", f3(q4["F05"]), f3(Q["bea_dev|fourshot"]["F05"]), "\u2013", "\u2013"],
+         ["Qwen, 4-shot", "1.5B", "0", f3(q4["F05"]), f3(Q["bea_dev|fourshot"]["F05"]), "\u2013", "\u2013"],
          ["Ours, stage 1", "77M", "0", f3(ours_s1["conll|ref1_tau0.0"]["F05"]), f3(ours_s1["bea_dev|ref1_tau0.0"]["F05"]),
           "\u2013", f3(JG["final_s1_tau0"])],
          ["**Ours, final**", "**77M**", "**33k**", f"**{f3(N['conll']['F05'])}**", f"**{f3(N['bea']['F05'])}**",
@@ -621,7 +634,7 @@ set_par(PAR[125],
     "of Section 5.3 and the timings of Table 8 use the earlier checkpoint of the same architecture and decoder.")
 rel = new_par_after(PAR[125]._p, PAR[125],
     "**Release.** The training, decoding and evaluation notebooks, the split indices of the C4-200M sample and of the "
-    "W&I+LOCNESS holdout, all configurations, every system output on the five endpoints and the trained checkpoints are "
+    "W&I+LOCNESS holdout, all configurations, every system output scored in this paper and the trained checkpoints are "
     "available at https://github.com/MemoXk/compact-gec-flan-t5 (archived on Zenodo, https://doi.org/10.5281/zenodo.23326147). The Qwen2.5-1.5B-Instruct baseline uses revision 989aa79 of the public checkpoint "
     "in float16, the system prompt \u201cYou are a grammatical error correction system. Return ONLY the corrected "
     "sentence. Make the minimum number of edits. If the sentence is already correct, repeat it unchanged.\u201d, greedy "

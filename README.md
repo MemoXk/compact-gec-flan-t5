@@ -59,7 +59,7 @@ All training ran on the free Kaggle tier (2 x NVIDIA T4). Run the notebooks with
 | `R2_A_cleaning_full_budget.ipynb` | cleaning ablation at full budget (noisy/clean x seeds 42, 1337) | Kaggle dataset `dariocioni/c4200m` | 2 sessions x ~7 h |
 | `R2_C_retrain_core.ipynb` | stage-1 models (`final`, `nogate`; `gate` needs > 12 h, see paper) | `dariocioni/c4200m` | ~4-6 h per job |
 | `R2_D_stage2_dedup.ipynb` | stage 2 on W&I+LOCNESS, threshold tuning, full evaluation, blind BEA-2019 test file | outputs of `R2_C` | ~4 h |
-| `R2_B_final_system_eval.ipynb` | baselines (Qwen2.5, gec-t5), latency, decode factors of the earlier configuration | earlier checkpoints | ~8 h |
+| `R2_B_final_system_eval.ipynb` | baselines (Qwen2.5, gec-t5), latency, decode factors of the earlier configuration | earlier checkpoints | one session (< 12 h) |
 
 Each notebook downloads the official evaluation data and scorers itself and writes a single results archive. Every
 training run includes an automatic check that stops training if the training/validation loss ratio indicates that the
