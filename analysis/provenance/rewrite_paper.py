@@ -622,7 +622,7 @@ set_par(PAR[125],
 rel = new_par_after(PAR[125]._p, PAR[125],
     "**Release.** The training, decoding and evaluation notebooks, the split indices of the C4-200M sample and of the "
     "W&I+LOCNESS holdout, all configurations, every system output on the five endpoints and the trained checkpoints are "
-    "available at [[REPOSITORY URL]]. The Qwen2.5-1.5B-Instruct baseline uses revision 989aa79 of the public checkpoint "
+    "available at https://github.com/MemoXk/compact-gec-flan-t5 (archived on Zenodo, [[DOI to be added]]). The Qwen2.5-1.5B-Instruct baseline uses revision 989aa79 of the public checkpoint "
     "in float16, the system prompt \u201cYou are a grammatical error correction system. Return ONLY the corrected "
     "sentence. Make the minimum number of edits. If the sentence is already correct, repeat it unchanged.\u201d, greedy "
     "decoding with at most 96 new tokens and the first output line; its four exemplars are drawn with a fixed seed "

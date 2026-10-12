@@ -79,7 +79,8 @@ The final system (stage 1 and stage 2) and the no-edit ablation checkpoints are 
 
 ## Data and licences
 
-* Code: MIT (see `LICENSE`). `third_party/m2scorer_py3/`: GPL-2.0 (its own `LICENSE`).
+* Code and documentation written for this project: MIT (see `LICENSE`). It does not cover
+  `third_party/m2scorer_py3/` (GPL-2.0, its own `LICENSE`) or the data described in `LICENSE-DATA.md`.
 * Benchmark data are **not** redistributed; `analysis/get_data.py` downloads them from their official sources.
   System outputs on W&I+LOCNESS (BEA-2019), CoNLL-2014 and JFLEG are derived from those datasets and are provided for
   non-commercial research only, under the terms of the respective datasets (see `LICENSE-DATA.md`).
