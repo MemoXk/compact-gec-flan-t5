@@ -1,5 +1,9 @@
 # Compact GEC with FLAN-T5-small: controlled baselines, full-budget ablations and two-stage transfer
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23326147.svg)](https://doi.org/10.5281/zenodo.23326147)
+
+Archived on Zenodo: https://doi.org/10.5281/zenodo.23326147 (all versions; v1.0.0 is https://doi.org/10.5281/zenodo.23326148).
+
 Code, configurations, data splits, system outputs and analysis results for
 
 > M. A. ElTaweel and N. Negied, *Rethinking FLAN-T5 for Grammatical Error Correction: Controlled Baselines,

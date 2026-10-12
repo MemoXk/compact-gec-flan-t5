@@ -5,6 +5,7 @@ title: "Compact GEC with FLAN-T5-small: code, splits, outputs and analyses"
 version: 1.0.0
 license: MIT
 repository-code: "https://github.com/MemoXk/compact-gec-flan-t5"
+doi: 10.5281/zenodo.23326147
 authors:
   - family-names: ElTaweel
     given-names: Mohammed A.
