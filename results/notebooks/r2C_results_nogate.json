@@ -1,0 +1,154 @@
+{
+ "clean_test_reproduces_paper": true,
+ "train|nogate_s1": {
+  "stage": 1,
+  "gate": false,
+  "train_rows": 1150000,
+  "steps": 8985,
+  "planned_steps": 8985,
+  "global_batch": 128,
+  "micro_batch": 16,
+  "grad_accum": 4,
+  "warmup_steps": 539,
+  "train_seconds": 10889.7,
+  "examples_per_s": 105.6,
+  "train_loss": 4.710106443682179,
+  "best_checkpoint": "/kaggle/working/ck_nogate_s1/checkpoint-7500",
+  "best_eval_loss": 4.039981842041016,
+  "train_eval_loss_ratio": 1.1653912579750794,
+  "median_grad_norm": 0.899619996547699
+ },
+ "eval|nogate_s1": {
+  "c4|ref1_taunone": {
+   "P": 0.45780771586037966,
+   "R": 0.20794392523364486,
+   "F05": 0.3691049845959396,
+   "TP": 3738,
+   "FP": 4427,
+   "FN": 14238,
+   "perfect": 7.22,
+   "improved": 34.14,
+   "unchanged": 25.48,
+   "lateral": 14.98,
+   "harm": 18.18,
+   "edited_pct": 74.52
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 1170,
+   "FP": 2268,
+   "FN": 6291,
+   "P": 0.3403,
+   "R": 0.1568,
+   "F05": 0.2758
+  },
+  "conll|ref1_taunone": {
+   "P": 0.5636,
+   "R": 0.2383,
+   "F05": 0.4427
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.501523,
+   "std": 0.007605,
+   "ci95": "(0.487,0.516)"
+  }
+ },
+ "train|nogate_s2": {
+  "stage": 2,
+  "gate": false,
+  "train_rows": 65186,
+  "steps": 3057,
+  "planned_steps": 3057,
+  "global_batch": 64,
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "warmup_steps": 183,
+  "train_seconds": 1742.0,
+  "examples_per_s": 112.26,
+  "train_loss": 3.4841950416252976,
+  "best_checkpoint": "/kaggle/working/ck_nogate_s2/checkpoint-3057",
+  "best_eval_loss": 3.368647813796997,
+  "train_eval_loss_ratio": 1.0463259351408833,
+  "median_grad_norm": 0.8424911499023438
+ },
+ "tau|nogate_s2": {
+  "tau": 0.0,
+  "curve": {
+   "None": 0.4866,
+   "0.0": 0.4969,
+   "0.02": 0.4894,
+   "0.05": 0.4707,
+   "0.1": 0.4296,
+   "0.15": 0.3818,
+   "0.2": 0.3267,
+   "0.3": 0.2098,
+   "0.5": 0.0501
+  }
+ },
+ "eval|nogate_s2": {
+  "c4|ref1_tau0.0": {
+   "P": 0.4029401346085724,
+   "R": 0.1265576323987539,
+   "F05": 0.28044871794871795,
+   "TP": 2275,
+   "FP": 3371,
+   "FN": 15701,
+   "perfect": 3.44,
+   "improved": 23.72,
+   "unchanged": 43.66,
+   "lateral": 11.86,
+   "harm": 17.32,
+   "edited_pct": 56.34
+  },
+  "c4|ref1_taunone": {
+   "P": 0.3544159544159544,
+   "R": 0.13840676457498888,
+   "F05": 0.2701059579642175,
+   "TP": 2488,
+   "FP": 4532,
+   "FN": 15488,
+   "perfect": 3.6,
+   "improved": 24.78,
+   "unchanged": 33.62,
+   "lateral": 13.62,
+   "harm": 24.38,
+   "edited_pct": 66.38
+  },
+  "bea_dev|ref1_tau0.0": {
+   "TP": 1921,
+   "FP": 1662,
+   "FN": 5540,
+   "P": 0.5361,
+   "R": 0.2575,
+   "F05": 0.4407
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 2063,
+   "FP": 2094,
+   "FN": 5398,
+   "P": 0.4963,
+   "R": 0.2765,
+   "F05": 0.4282
+  },
+  "conll|ref1_tau0.0": {
+   "P": 0.6638,
+   "R": 0.3078,
+   "F05": 0.5391
+  },
+  "conll|ref1_taunone": {
+   "P": 0.6343,
+   "R": 0.322,
+   "F05": 0.5312
+  },
+  "jfleg|ref1_tau0.0": {
+   "GLEU": 0.536594,
+   "std": 0.008257,
+   "ci95": "(0.520,0.553)"
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.539483,
+   "std": 0.008126,
+   "ci95": "(0.524,0.555)"
+  }
+ },
+ "done|nogate": true
+}

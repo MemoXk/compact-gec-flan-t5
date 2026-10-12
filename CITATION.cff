@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite them as below."
+type: software
+title: "Compact GEC with FLAN-T5-small: code, splits, outputs and analyses"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/MemoXk/compact-gec-flan-t5"
+authors:
+  - family-names: ElTaweel
+    given-names: Mohammed A.
+    affiliation: "School of Communications and Information Engineering, Zewail City of Science and Technology, Giza, Egypt"
+  - family-names: Negied
+    given-names: Nermin
+    affiliation: "Faculty of Computer Science, October University for Modern Science and Arts (MSA), Giza, Egypt"
+keywords:
+  - grammatical error correction
+  - FLAN-T5
+  - synthetic data
+  - low-resource fine-tuning
+  - ablation study
+  - BEA-2019

@@ -1,0 +1,19 @@
+[
+ {"table": "T4", "name": "cleaning_seed42", "a": "nogate_stage1", "b": "noisy_s42", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "cleaning_seed1337", "a": "clean_s1337", "b": "noisy_s1337", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "seed_1337_vs_42_clean", "a": "clean_s1337", "b": "nogate_stage1", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "noedit_stage1", "a": "final_stage1_no_threshold", "b": "nogate_stage1", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "noedit_two_stage", "a": "final", "b": "nogate_two_stage", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "copy_gate_earlier_config", "a": "earlier_config/copy_gate", "b": "earlier_config/no_gate", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "human_data_stage", "a": "nogate_two_stage_no_threshold", "b": "nogate_stage1", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "threshold_tau0", "a": "final", "b": "final_no_threshold", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "refinement", "a": "final", "b": "final_no_refinement", "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T4", "name": "length_penalty_0.7_vs_1.0", "a": {"c4": "earlier_config/stage1_lp0.7", "bea_dev": "earlier_config/final", "conll": "earlier_config/final"},
+  "b": {"c4": "earlier_config/stage1_lp1.0", "bea_dev": "earlier_config/final_lp1.0", "conll": "earlier_config/final_lp1.0"}, "benchmarks": ["c4", "bea_dev", "conll"]},
+ {"table": "T6", "name": "final_vs_qwen_fourshot", "a": "final", "b": "baselines/qwen2.5-1.5b_fourshot", "benchmarks": ["bea_dev", "conll"]},
+ {"table": "T6", "name": "final_vs_qwen_zeroshot", "a": "final", "b": "baselines/qwen2.5-1.5b_zeroshot", "benchmarks": ["bea_dev", "conll"]},
+ {"table": "T6", "name": "final_vs_gec_t5_small", "a": "final", "b": "baselines/gec-t5-small-clang8", "benchmarks": ["bea_dev", "conll"]},
+ {"table": "T6", "name": "final_vs_gec_t5_base", "a": "final", "b": "baselines/gec-t5-base-clang8", "benchmarks": ["bea_dev", "conll"]},
+ {"table": "S58", "name": "final_vs_earlier_config_final", "a": "final", "b": "earlier_config/final", "benchmarks": ["bea_dev", "conll"]},
+ {"table": "S58", "name": "final_vs_superseded_dupstage2", "a": "final", "b": "superseded/final_dupstage2", "benchmarks": ["c4", "bea_dev", "conll"]}
+]

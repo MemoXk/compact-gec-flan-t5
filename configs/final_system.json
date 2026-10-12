@@ -1,0 +1,57 @@
+{
+ "backbone": "google/flan-t5-small (77M parameters)",
+ "instruction_prefix": "Correct the grammar in this sentence: ",
+ "max_input_tokens": 128,
+ "max_target_tokens": 128,
+ "stage1": {
+  "notebook": "notebooks/R2_C_retrain_core.ipynb (job 'final'; job 'nogate' for the ablation without no-edit pairs)",
+  "data": "cleaned C4-200M sample: 1,150,000 training pairs + 172,500 no-edit (target->target) pairs = 1,322,500 examples",
+  "no_edit_fraction": 0.15,
+  "source_word_dropout": 0.05,
+  "source_word_dropout_applies_to": "edit pairs only",
+  "optimizer": "AdamW",
+  "learning_rate": 3e-4,
+  "weight_decay": 0.01,
+  "label_smoothing": 0.1,
+  "schedule": "cosine",
+  "warmup_fraction": 0.06,
+  "epochs": 1,
+  "per_device_batch": 16,
+  "gradient_accumulation": 4,
+  "gpus": 2,
+  "global_batch": 128,
+  "optimizer_steps": 10333,
+  "precision": "fp16 (NVIDIA T4)",
+  "checkpoint_selection": "lowest validation loss, evaluated every 2,500 steps (25,000-pair synthetic validation split)",
+  "seed": 42,
+  "loss_normalisation_check": "training stops if mean recent training loss / validation loss > 2.0 at the first evaluation"
+ },
+ "stage2": {
+  "notebook": "notebooks/R2_D_stage2_dedup.ipynb",
+  "data": "W&I+LOCNESS v2.1 training M2 files A, B and C (first annotator): 34,308 pairs",
+  "holdout": "5% of the unique source sentences (seed 42), no source sentence in both parts: 32,600 training / 1,708 holdout pairs",
+  "learning_rate": 1e-4,
+  "epochs": 3,
+  "per_device_batch": 16,
+  "gradient_accumulation": 2,
+  "gpus": 2,
+  "global_batch": 64,
+  "checkpoint_selection": "lowest holdout loss, evaluated every epoch",
+  "seed": 42
+ },
+ "decoding": {
+  "num_beams": 5,
+  "no_repeat_ngram_size": 3,
+  "length_penalty": 0.7,
+  "max_length": 128,
+  "refinement": "re-run the model on its own output; accept the second output only if it changes at most 3 tokens",
+  "threshold": "revert the whole sentence to the source when mean log p(output) - mean log p(source) < tau",
+  "tau_grid": [null, 0.0, 0.02, 0.05, 0.1, 0.15, 0.2, 0.3, 0.5],
+  "tau_selection": "maximise edit-level F0.5 on the stage-2 holdout"
+ },
+ "retokenisation_for_scoring": {
+  "conll": "rule-based tokenizer (analysis/retok.py: regex_tok), 99.3% round-trip on CoNLL-2014 references",
+  "bea": "spaCy en_core_web_sm tokenizer (analysis/retok.py: spacy_tok), 98.7% round-trip on BEA-2019 references",
+  "jfleg": "regex_tok"
+ }
+}

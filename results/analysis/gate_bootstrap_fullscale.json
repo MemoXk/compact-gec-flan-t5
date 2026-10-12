@@ -1,0 +1,25 @@
+{
+ "n_sentences": 25000,
+ "no_gate": {
+  "tp": 17342,
+  "fp": 22193,
+  "fn": 73263,
+  "F05": 0.3485899214054554,
+  "P": 0.43864929809029973,
+  "R": 0.19140224049445395
+ },
+ "gate": {
+  "tp": 16636,
+  "fp": 22882,
+  "fn": 73969,
+  "F05": 0.3344901217241643,
+  "P": 0.4209727212915633,
+  "R": 0.18361017603884996
+ },
+ "delta_F05_nogate_minus_gate": 0.014099799681291103,
+ "ci_low": 0.011111991515577633,
+ "ci_high": 0.017081088050512415,
+ "p_value": 0.0,
+ "n_boot": 2000,
+ "note": "Full-scale runs reported in the paper (1.15M-pair training, 25k test). Index 0 = no gate (run2), index 1 = copy gate (run1). Paired on identical sentences."
+}

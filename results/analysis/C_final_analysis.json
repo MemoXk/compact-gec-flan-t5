@@ -1,0 +1,240 @@
+{
+ "conll_m2": {
+  "retrained_final": {
+   "P": 0.6664,
+   "R": 0.2904,
+   "F05": 0.5293,
+   "official": {
+    "Precision": 0.6664,
+    "Recall": 0.2904,
+    "F_0.5": 0.5293
+   }
+  },
+  "retrained_no_threshold": {
+   "P": 0.6308,
+   "R": 0.3061,
+   "F05": 0.5204,
+   "official": {
+    "Precision": 0.6308,
+    "Recall": 0.3061,
+    "F_0.5": 0.5204
+   }
+  },
+  "retrained_no_refinement": {
+   "P": 0.6667,
+   "R": 0.2872,
+   "F05": 0.5273,
+   "official": {
+    "Precision": 0.6667,
+    "Recall": 0.2872,
+    "F_0.5": 0.5273
+   }
+  },
+  "retrained_stage1": {
+   "P": 0.6443,
+   "R": 0.1603,
+   "F05": 0.4017,
+   "official": {
+    "Precision": 0.6443,
+    "Recall": 0.1603,
+    "F_0.5": 0.4017
+   }
+  },
+  "june_final": {
+   "P": 0.6612,
+   "R": 0.2805,
+   "F05": 0.52,
+   "official": {
+    "Precision": 0.6612,
+    "Recall": 0.2805,
+    "F_0.5": 0.52
+   }
+  },
+  "qwen_fourshot": {
+   "P": 0.4236,
+   "R": 0.5108,
+   "F05": 0.4386,
+   "official": {
+    "Precision": 0.4236,
+    "Recall": 0.5108,
+    "F_0.5": 0.4386
+   }
+  },
+  "gec_t5_small": {
+   "P": 0.6509,
+   "R": 0.4116,
+   "F05": 0.5831,
+   "official": {
+    "Precision": 0.6509,
+    "Recall": 0.4116,
+    "F_0.5": 0.5831
+   }
+  },
+  "gec_t5_base": {
+   "P": 0.6888,
+   "R": 0.4511,
+   "F05": 0.6231,
+   "official": {
+    "Precision": 0.6888,
+    "Recall": 0.4511,
+    "F_0.5": 0.6231
+   }
+  }
+ },
+ "bea_dev_errant": {
+  "retrained_final": {
+   "P": 0.5417,
+   "R": 0.249,
+   "F05": 0.4386
+  },
+  "retrained_no_threshold": {
+   "P": 0.4981,
+   "R": 0.2689,
+   "F05": 0.4256
+  },
+  "retrained_no_refinement": {
+   "P": 0.5429,
+   "R": 0.2478,
+   "F05": 0.4385
+  },
+  "retrained_stage1": {
+   "P": 0.3839,
+   "R": 0.0988,
+   "F05": 0.2434
+  },
+  "june_final": {
+   "P": 0.5383,
+   "R": 0.2375,
+   "F05": 0.4295
+  },
+  "qwen_fourshot": {
+   "P": 0.2438,
+   "R": 0.3837,
+   "F05": 0.263
+  },
+  "gec_t5_small": {
+   "P": 0.5573,
+   "R": 0.3252,
+   "F05": 0.4877
+  },
+  "gec_t5_base": {
+   "P": 0.5896,
+   "R": 0.3556,
+   "F05": 0.521
+  }
+ },
+ "bootstrap": {
+  "conll|retrained_final-june_final": {
+   "delta": 0.0093,
+   "ci95": [
+    -0.0024,
+    0.0206
+   ],
+   "p_two_sided": 0.119
+  },
+  "bea|retrained_final-june_final": {
+   "delta": 0.0091,
+   "ci95": [
+    0.0021,
+    0.0159
+   ],
+   "p_two_sided": 0.011
+  },
+  "conll|retrained_final-qwen_fourshot": {
+   "delta": 0.0907,
+   "ci95": [
+    0.065,
+    0.1168
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|retrained_final-qwen_fourshot": {
+   "delta": 0.1756,
+   "ci95": [
+    0.1602,
+    0.1916
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|retrained_final-gec_t5_small": {
+   "delta": -0.0538,
+   "ci95": [
+    -0.0724,
+    -0.0344
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|retrained_final-gec_t5_small": {
+   "delta": -0.0491,
+   "ci95": [
+    -0.0624,
+    -0.0353
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|retrained_final-gec_t5_base": {
+   "delta": -0.0938,
+   "ci95": [
+    -0.1134,
+    -0.0734
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|retrained_final-gec_t5_base": {
+   "delta": -0.0824,
+   "ci95": [
+    -0.0965,
+    -0.0688
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|retrained_final-retrained_no_threshold": {
+   "delta": 0.0089,
+   "ci95": [
+    0.0012,
+    0.0161
+   ],
+   "p_two_sided": 0.023
+  },
+  "bea|retrained_final-retrained_no_threshold": {
+   "delta": 0.013,
+   "ci95": [
+    0.0081,
+    0.0185
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|retrained_final-retrained_no_refinement": {
+   "delta": 0.002,
+   "ci95": [
+    -0.0013,
+    0.0053
+   ],
+   "p_two_sided": 0.239
+  },
+  "bea|retrained_final-retrained_no_refinement": {
+   "delta": 0.0001,
+   "ci95": [
+    -0.0012,
+    0.0015
+   ],
+   "p_two_sided": 0.847
+  },
+  "conll|retrained_final-retrained_stage1": {
+   "delta": 0.1276,
+   "ci95": [
+    0.1004,
+    0.1553
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|retrained_final-retrained_stage1": {
+   "delta": 0.1952,
+   "ci95": [
+    0.1792,
+    0.2103
+   ],
+   "p_two_sided": 0.0
+  }
+ }
+}

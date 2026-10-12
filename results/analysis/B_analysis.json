@@ -1,0 +1,373 @@
+{
+ "conll_m2": {
+  "ours_final": {
+   "P": 0.6612,
+   "R": 0.2805,
+   "F05": 0.52,
+   "official": {
+    "Precision": 0.6612,
+    "Recall": 0.2805,
+    "F_0.5": 0.52
+   }
+  },
+  "ours_no_threshold": {
+   "P": 0.6217,
+   "R": 0.2945,
+   "F05": 0.5087,
+   "official": {
+    "Precision": 0.6217,
+    "Recall": 0.2945,
+    "F_0.5": 0.5087
+   }
+  },
+  "ours_no_refinement": {
+   "P": 0.6611,
+   "R": 0.2791,
+   "F05": 0.519,
+   "official": {
+    "Precision": 0.6611,
+    "Recall": 0.2791,
+    "F_0.5": 0.519
+   }
+  },
+  "ours_lp1.0": {
+   "P": 0.6603,
+   "R": 0.2814,
+   "F05": 0.5202,
+   "official": {
+    "Precision": 0.6603,
+    "Recall": 0.2814,
+    "F_0.5": 0.5202
+   }
+  },
+  "qwen_fourshot": {
+   "P": 0.4236,
+   "R": 0.5108,
+   "F05": 0.4386,
+   "official": {
+    "Precision": 0.4236,
+    "Recall": 0.5108,
+    "F_0.5": 0.4386
+   }
+  },
+  "qwen_zeroshot": {
+   "P": 0.4052,
+   "R": 0.5117,
+   "F05": 0.4228,
+   "official": {
+    "Precision": 0.4052,
+    "Recall": 0.5117,
+    "F_0.5": 0.4228
+   }
+  },
+  "gec_t5_small": {
+   "P": 0.6509,
+   "R": 0.4116,
+   "F05": 0.5831,
+   "official": {
+    "Precision": 0.6509,
+    "Recall": 0.4116,
+    "F_0.5": 0.5831
+   }
+  },
+  "gec_t5_base": {
+   "P": 0.6888,
+   "R": 0.4511,
+   "F05": 0.6231,
+   "official": {
+    "Precision": 0.6888,
+    "Recall": 0.4511,
+    "F_0.5": 0.6231
+   }
+  },
+  "stage1_run2decode": {
+   "P": 0.538,
+   "R": 0.1661,
+   "F05": 0.3716,
+   "official": {
+    "Precision": 0.538,
+    "Recall": 0.1661,
+    "F_0.5": 0.3716
+   }
+  },
+  "run2_stored_fixed": {
+   "P": 0.5044,
+   "R": 0.2244,
+   "F05": 0.4037,
+   "official": {
+    "Precision": 0.5044,
+    "Recall": 0.2244,
+    "F_0.5": 0.4037
+   }
+  },
+  "paper_stored_fixed": {
+   "P": 0.6208,
+   "R": 0.2796,
+   "F05": 0.499,
+   "official": {
+    "Precision": 0.6208,
+    "Recall": 0.2796,
+    "F_0.5": 0.499
+   }
+  }
+ },
+ "bea_dev_errant": {
+  "ours_final": {
+   "P": 0.5383,
+   "R": 0.2375,
+   "F05": 0.4295
+  },
+  "ours_no_threshold": {
+   "P": 0.4951,
+   "R": 0.2572,
+   "F05": 0.4178
+  },
+  "ours_no_refinement": {
+   "P": 0.5393,
+   "R": 0.2356,
+   "F05": 0.4288
+  },
+  "ours_lp1.0": {
+   "P": 0.537,
+   "R": 0.2394,
+   "F05": 0.4301
+  },
+  "qwen_fourshot": {
+   "P": 0.2438,
+   "R": 0.3837,
+   "F05": 0.263
+  },
+  "qwen_zeroshot": {
+   "P": 0.2155,
+   "R": 0.3873,
+   "F05": 0.2365
+  },
+  "gec_t5_small": {
+   "P": 0.5573,
+   "R": 0.3252,
+   "F05": 0.4877
+  },
+  "gec_t5_base": {
+   "P": 0.5896,
+   "R": 0.3556,
+   "F05": 0.521
+  },
+  "stage1_run2decode": {
+   "P": 0.3224,
+   "R": 0.1102,
+   "F05": 0.2327
+  },
+  "run2_stored": {
+   "P": 0.3195,
+   "R": 0.1402,
+   "F05": 0.2544
+  }
+ },
+ "c4_errant": {
+  "final": {
+   "P": 0.5266,
+   "R": 0.1368,
+   "F05": 0.3354
+  },
+  "no_threshold": {
+   "P": 0.4642,
+   "R": 0.1522,
+   "F05": 0.3292
+  },
+  "no_refinement": {
+   "P": 0.5266,
+   "R": 0.1353,
+   "F05": 0.3337
+  },
+  "lp1.0": {
+   "P": 0.5254,
+   "R": 0.1372,
+   "F05": 0.3355
+  },
+  "lp1.2": {
+   "P": 0.5244,
+   "R": 0.1367,
+   "F05": 0.3346
+  },
+  "stage1_run2decode": {
+   "P": 0.4642,
+   "R": 0.1522,
+   "F05": 0.3292
+  },
+  "run2_stored": {
+   "P": 0.4429,
+   "R": 0.1929,
+   "F05": 0.3517
+  }
+ },
+ "bootstrap": {
+  "conll|ours_final-qwen_fourshot": {
+   "delta": 0.0814,
+   "ci95": [
+    0.0546,
+    0.1061
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|ours_final-qwen_fourshot": {
+   "delta": 0.1665,
+   "ci95": [
+    0.1513,
+    0.1819
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|ours_final-qwen_zeroshot": {
+   "delta": 0.0972,
+   "ci95": [
+    0.071,
+    0.1232
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|ours_final-qwen_zeroshot": {
+   "delta": 0.193,
+   "ci95": [
+    0.1782,
+    0.2083
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|ours_final-gec_t5_small": {
+   "delta": -0.063,
+   "ci95": [
+    -0.0835,
+    -0.0435
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|ours_final-gec_t5_small": {
+   "delta": -0.0582,
+   "ci95": [
+    -0.0717,
+    -0.0448
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|ours_final-gec_t5_base": {
+   "delta": -0.1031,
+   "ci95": [
+    -0.1239,
+    -0.0816
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|ours_final-gec_t5_base": {
+   "delta": -0.0915,
+   "ci95": [
+    -0.1052,
+    -0.078
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|ours_final-ours_no_threshold": {
+   "delta": 0.0114,
+   "ci95": [
+    0.0052,
+    0.0177
+   ],
+   "p_two_sided": 0.0
+  },
+  "bea|ours_final-ours_no_threshold": {
+   "delta": 0.0117,
+   "ci95": [
+    0.0064,
+    0.0173
+   ],
+   "p_two_sided": 0.0
+  },
+  "conll|ours_final-ours_no_refinement": {
+   "delta": 0.001,
+   "ci95": [
+    -0.0013,
+    0.0035
+   ],
+   "p_two_sided": 0.42
+  },
+  "bea|ours_final-ours_no_refinement": {
+   "delta": 0.0007,
+   "ci95": [
+    -0.0016,
+    0.0031
+   ],
+   "p_two_sided": 0.527
+  },
+  "conll|ours_final-ours_lp1.0": {
+   "delta": -0.0001,
+   "ci95": [
+    -0.0034,
+    0.0027
+   ],
+   "p_two_sided": 0.979
+  },
+  "bea|ours_final-ours_lp1.0": {
+   "delta": -0.0006,
+   "ci95": [
+    -0.0025,
+    0.0012
+   ],
+   "p_two_sided": 0.529
+  },
+  "c4|final-no_threshold": {
+   "delta": 0.0062,
+   "ci95": [
+    0.0019,
+    0.0103
+   ],
+   "p_two_sided": 0.005
+  },
+  "c4|final-no_refinement": {
+   "delta": 0.0017,
+   "ci95": [
+    0.0003,
+    0.0032
+   ],
+   "p_two_sided": 0.019
+  },
+  "c4|final-lp1.0": {
+   "delta": -0.0001,
+   "ci95": [
+    -0.0017,
+    0.0016
+   ],
+   "p_two_sided": 0.934
+  },
+  "c4|final-lp1.2": {
+   "delta": 0.0008,
+   "ci95": [
+    -0.0012,
+    0.0028
+   ],
+   "p_two_sided": 0.457
+  },
+  "noedit|c4|with-without": {
+   "delta": -0.0225,
+   "ci95": [
+    -0.0286,
+    -0.0163
+   ],
+   "p_two_sided": 0.0
+  },
+  "noedit|bea|with-without": {
+   "delta": -0.0217,
+   "ci95": [
+    -0.0308,
+    -0.013
+   ],
+   "p_two_sided": 0.0
+  },
+  "noedit|conll|with-without": {
+   "delta": -0.0321,
+   "ci95": [
+    -0.0514,
+    -0.0144
+   ],
+   "p_two_sided": 0.002
+  }
+ }
+}

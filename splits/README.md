@@ -1,0 +1,5 @@
+# Splits
+
+* `c4_split_index_clean.tsv.gz` / `c4_split_index_noisy.tsv.gz`: for every one of the 1,200,000 C4-200M pairs kept by the cleaned (resp. uncleaned) sampling, the shard number, the line number inside `C4_200M.tsv-0000x-of-00010` and the split (`train`, `val`, `test`). Regenerating the corpus with `notebooks/R2_A_cleaning_full_budget.ipynb` gives the same rows; the cleaned test split is verified by the SHA-256 stored in `configs/splits.json`.
+* `c4_test_subset_5k.tsv`: the fixed 5,000-pair in-domain evaluation subset (`test_index` = row of the 25,000-pair cleaned test split; subset drawn with `numpy.random.default_rng(2026).permutation(25000)[:5000]`, sorted). C4-200M is by Stahlberg and Kumar (2021) and is based on C4 (Raffel et al., 2020); please cite both.
+* `wi_holdout_index.txt` (added with the stage-2 results): indices, in A+B+C file order of the W&I+LOCNESS v2.1 training M2 files, of the 5% stage-2 holdout (5% of the unique source sentences, seed 42; no source sentence occurs in both parts).

@@ -1,0 +1,108 @@
+{
+ "clean_test_reproduces_run2": true,
+ "jfleg_do_nothing": {
+  "GLEU": 0.405084,
+  "std": 0.007715,
+  "ci95": "(0.390,0.420)"
+ },
+ "train|noisy_s42": {
+  "train_rows": 1150000,
+  "steps": 8985,
+  "planned_steps": 8985,
+  "warmup_steps": 539,
+  "train_seconds": 10973.1,
+  "examples_per_s": 104.8,
+  "train_loss": 4.8084814752017255,
+  "best_checkpoint": "/kaggle/working/ck_noisy_s42/checkpoint-8985",
+  "best_eval_loss": 4.13762903213501,
+  "seed": 42
+ },
+ "eval|noisy_s42": {
+  "c4_clean_subset": {
+   "P": 0.46659337974838155,
+   "R": 0.2125055629728527,
+   "F05": 0.3765475908839997,
+   "TP": 3820,
+   "FP": 4367,
+   "FN": 14156,
+   "perfect": 7.48,
+   "improved": 34.32,
+   "unchanged": 24.94,
+   "lateral": 14.76,
+   "harm": 18.5,
+   "edited_pct": 75.06
+  },
+  "bea_dev_errant": {
+   "TP": 1132,
+   "FP": 2222,
+   "FN": 6329,
+   "P": 0.3375,
+   "R": 0.1517,
+   "F05": 0.2711
+  },
+  "bea_dev_outcome": {
+   "perfect": 29.81,
+   "improved": 12.61,
+   "unchanged": 27.97,
+   "lateral": 6.66,
+   "harm": 22.95,
+   "edited_pct": 46.33
+  },
+  "conll_m2": null,
+  "jfleg_gleu_official": {
+   "GLEU": 0.497614,
+   "std": 0.007683,
+   "ci95": "(0.483,0.513)"
+  }
+ },
+ "train|noisy_s1337": {
+  "train_rows": 1150000,
+  "steps": 8985,
+  "planned_steps": 8985,
+  "warmup_steps": 539,
+  "train_seconds": 10947.7,
+  "examples_per_s": 105.04,
+  "train_loss": 4.807952598949639,
+  "best_checkpoint": "/kaggle/working/ck_noisy_s1337/checkpoint-8985",
+  "best_eval_loss": 4.137206554412842,
+  "seed": 1337
+ },
+ "eval|noisy_s1337": {
+  "c4_clean_subset": {
+   "P": 0.47032805012900847,
+   "R": 0.2129506008010681,
+   "F05": 0.3787698883875564,
+   "TP": 3828,
+   "FP": 4311,
+   "FN": 14148,
+   "perfect": 7.32,
+   "improved": 34.76,
+   "unchanged": 25.2,
+   "lateral": 14.7,
+   "harm": 18.02,
+   "edited_pct": 74.8
+  },
+  "bea_dev_errant": {
+   "TP": 1152,
+   "FP": 2252,
+   "FN": 6309,
+   "P": 0.3384,
+   "R": 0.1544,
+   "F05": 0.2733
+  },
+  "bea_dev_outcome": {
+   "perfect": 29.74,
+   "improved": 12.91,
+   "unchanged": 27.37,
+   "lateral": 6.52,
+   "harm": 23.45,
+   "edited_pct": 46.81
+  },
+  "conll_m2": null,
+  "jfleg_gleu_official": {
+   "GLEU": 0.499744,
+   "std": 0.00775,
+   "ci95": "(0.485,0.515)"
+  }
+ }
+}

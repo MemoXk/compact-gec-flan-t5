@@ -1,0 +1,144 @@
+{
+ "final": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg",
+  "bea_test"
+ ],
+ "final_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "final_no_refinement": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "final_tau0.05": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "final_tau0.1": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "final_tau0.2": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "nogate_two_stage": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "nogate_two_stage_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "final_stage1": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "final_stage1_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "nogate_stage1": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "noisy_s42": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "noisy_s1337": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "clean_s1337": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "superseded/final_dupstage2": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg",
+  "bea_test"
+ ],
+ "superseded/nogate_dupstage2": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "earlier_config/final": [
+  "bea_dev",
+  "conll",
+  "jfleg",
+  "bea_test"
+ ],
+ "earlier_config/final_lp1.0": [
+  "bea_dev",
+  "conll"
+ ],
+ "earlier_config/stage1_lp0.7": [
+  "c4"
+ ],
+ "earlier_config/stage1_lp1.0": [
+  "c4"
+ ],
+ "earlier_config/copy_gate": [
+  "c4",
+  "conll",
+  "bea_dev"
+ ],
+ "earlier_config/no_gate": [
+  "c4",
+  "conll",
+  "bea_dev"
+ ],
+ "baselines/qwen2.5-1.5b_zeroshot": [
+  "conll",
+  "bea_dev"
+ ],
+ "baselines/qwen2.5-1.5b_fourshot": [
+  "conll",
+  "bea_dev"
+ ],
+ "baselines/gec-t5-small-clang8": [
+  "conll",
+  "bea_dev",
+  "jfleg"
+ ],
+ "baselines/gec-t5-base-clang8": [
+  "conll",
+  "bea_dev",
+  "jfleg"
+ ]
+}

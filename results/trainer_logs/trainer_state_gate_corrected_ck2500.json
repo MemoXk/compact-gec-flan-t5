@@ -1,0 +1,54 @@
+{
+ "best_global_step": 2500,
+ "best_metric": 4.1245436668396,
+ "epoch": 0.2782569981635038,
+ "global_step": 2500,
+ "max_steps": 8985,
+ "train_batch_size": 32,
+ "log_history": [
+  {
+   "epoch": 0.055651399632700764,
+   "grad_norm": 1.1825295686721802,
+   "learning_rate": 0.0002777365491651206,
+   "loss": 5.3164912109375,
+   "step": 500
+  },
+  {
+   "epoch": 0.11130279926540153,
+   "grad_norm": 1.098528504371643,
+   "learning_rate": 0.0002978096439236509,
+   "loss": 4.89670751953125,
+   "step": 1000
+  },
+  {
+   "epoch": 0.16695419889810229,
+   "grad_norm": 0.8598647117614746,
+   "learning_rate": 0.0002905380268570466,
+   "loss": 4.8075849609375,
+   "step": 1500
+  },
+  {
+   "epoch": 0.22260559853080306,
+   "grad_norm": 0.7840989232063293,
+   "learning_rate": 0.00027841933998646944,
+   "loss": 4.7571123046875,
+   "step": 2000
+  },
+  {
+   "epoch": 0.2782569981635038,
+   "grad_norm": 1.1252630949020386,
+   "learning_rate": 0.00026187154934223744,
+   "loss": 4.7116162109375,
+   "step": 2500
+  },
+  {
+   "epoch": 0.2782569981635038,
+   "eval_loss": 4.1245436668396,
+   "eval_runtime": 2244.187,
+   "eval_samples_per_second": 11.14,
+   "eval_steps_per_second": 0.348,
+   "step": 2500
+  }
+ ],
+ "note": "ck_gate_s1/checkpoint-2500/trainer_state.json from the timed-out Notebook C session 2 (gate job), pasted by the user 2026-10-12"
+}

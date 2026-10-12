@@ -1,0 +1,12 @@
+{
+ "title": "Compact GEC with FLAN-T5-small: code, splits, outputs and analyses",
+ "upload_type": "software",
+ "description": "Code, configurations, data splits, system outputs and analysis results for 'Rethinking FLAN-T5 for Grammatical Error Correction: Controlled Baselines, Full-Budget Ablations and Two-Stage Transfer with Little Human Data' (M. A. ElTaweel and N. Negied). Includes the Kaggle notebooks, the C4-200M split indices, the W&I+LOCNESS stage-2 holdout indices, all system outputs as scored, official-scorer results with paired bootstraps, and a portable verification script.",
+ "creators": [
+  {"name": "ElTaweel, Mohammed A.", "affiliation": "Zewail City of Science and Technology"},
+  {"name": "Negied, Nermin", "affiliation": "October University for Modern Science and Arts (MSA)"}
+ ],
+ "license": "MIT",
+ "keywords": ["grammatical error correction", "FLAN-T5", "synthetic data", "low-resource fine-tuning", "ablation study", "BEA-2019"],
+ "access_right": "open"
+}
