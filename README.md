@@ -68,7 +68,7 @@ loss is not normalised by gradient accumulation.
 ## Checkpoints
 
 The final system (stage 1 and stage 2) and the no-edit ablation checkpoints are archived on Zenodo:
-**CHECKPOINT DOI (to be added)**.
+https://doi.org/10.5281/zenodo.23328229 (four archives: `final_stage2`, `final_stage1`, `nogate_stage2`, `nogate_stage1`; CC BY-NC 4.0, because stage 2 was trained on W&I+LOCNESS).
 
 ## Corrections relative to earlier versions of this work
 
