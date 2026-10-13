@@ -260,9 +260,7 @@ set_par(PAR[19],
     "candid account of the outcome: the human-data stage dominates, a confidence threshold helps slightly, and the "
     "remaining additions do not survive full-budget testing. We report these negative results explicitly.")
 delete(PAR[20])
-set_par(PAR[21],
-    "Section 2 reviews related work, Section 3 describes the data and the cleaning procedure, Section 4 the models and "
-    "the evaluation protocol, Section 5 the results, and Section 6 concludes.")
+delete(PAR[21])                      # section roadmap dropped to stay within the 10-page limit
 
 # ---------------------------------------------------------------- 2. Related work
 set_par(PAR[24],
@@ -610,7 +608,8 @@ set_par(PAR[121], "5.8 Reproducibility and training configuration")
 set_par(PAR[122],
     "Table 10 lists the hyperparameters of both training stages and of inference. Stage 1 of the final system trains on "
     "1,322,500 examples (the 1,150,000-pair split plus 172,500 no-edit pairs) at the global batch of Eq. (12), giving "
-    "the step count of Eq. (13). Stage 2 uses a global batch of 64 (16 per device, 2 accumulation steps, 2 GPUs): the "
+    "the step count of Eq. (13). Stage 2 uses a global batch of 64 (16 per device, 2 accumulation steps, 2 GPUs) and keeps "
+    "the final partial batch: the "
     f"{WI['train_pairs']:,} training pairs form \u2308{WI['train_pairs']:,}/32\u2309 = {-(-WI['train_pairs'] // 32):,} "
     f"micro-batches per epoch, i.e. {TR2['steps'] // 3} updates per epoch and {TR2['steps']:,} over three epochs.")
 set_eq_number(PAR[123], 12); set_eq_number(PAR[124], 13)
@@ -635,7 +634,7 @@ set_par(PAR[125],
 rel = new_par_after(PAR[125]._p, PAR[125],
     "**Release.** The training, decoding and evaluation notebooks, the split indices of the C4-200M sample and of the "
     "W&I+LOCNESS holdout, all configurations, every system output scored in this paper and the trained checkpoints are "
-    "available at https://github.com/MemoXk/compact-gec-flan-t5 (archived on Zenodo, https://doi.org/10.5281/zenodo.23326147). The Qwen2.5-1.5B-Instruct baseline uses revision 989aa79 of the public checkpoint "
+    "available at https://github.com/MemoXk/compact-gec-flan-t5 (archived on Zenodo, https://doi.org/10.5281/zenodo.23326147). The Qwen2.5-1.5B-Instruct baseline uses revision 989aa7980e4cf806f80c7fef2b1adb7bc71aa306 of the public checkpoint "
     "in float16, the system prompt \u201cYou are a grammatical error correction system. Return ONLY the corrected "
     "sentence. Make the minimum number of edits. If the sentence is already correct, repeat it unchanged.\u201d, greedy "
     "decoding with at most 96 new tokens and the first output line; its four exemplars are drawn with a fixed seed "

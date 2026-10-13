@@ -47,8 +47,9 @@ of all systems takes a few hours on one CPU core (`--only <system> ...` restrict
 cache in `.cache/`). JFLEG is scored only if `data/jfleg/gleu.py` is present.
 
 The blind BEA-2019 test set cannot be scored locally. `results/bea19_test_codabench/` holds the official CodaBench
-results of the three trained versions of the final system, each submitted once: `earlier_config_final` (0.591),
-`superseded_final_dupstage2` (0.601) and `final` (0.596, the system reported in the paper; see *Corrections*).
+results of the three trained versions of the final system, each submitted once to CodaBench competition 10960:
+`earlier_config_final` (0.591, submission 975012), `superseded_final_dupstage2` (0.601, submission 978739) and `final`
+(0.596, submission 981124; the system reported in the paper, see *Corrections*).
 
 ## Reproducing the experiments
 
