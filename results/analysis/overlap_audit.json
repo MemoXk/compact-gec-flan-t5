@@ -1,0 +1,40 @@
+{
+ "cleaning_ablation": {
+  "c4_test_subset_5k_in_noisy_train": 4374,
+  "c4_test_25k_in_noisy_train": 21998,
+  "c4_test_25k_in_noisy_val_or_test": 943,
+  "c4_test_25k_in_clean_train": 0,
+  "train_overlap_pairs": 1010943,
+  "train_overlap_share_of_clean": 0.8791,
+  "train_overlap_share_of_noisy": 0.8791,
+  "identity": "C4-200M shard and line number (Notebook A split index files)"
+ },
+ "wi_train_vs_evaluation_sources": {
+  "bea2019_dev": {
+   "sentences": 4384,
+   "exact_matches": 80,
+   "normalised_matches_(>=20_chars)": 25
+  },
+  "bea2019_test": {
+   "sentences": 4477,
+   "exact_matches": 107,
+   "normalised_matches_(>=20_chars)": 22
+  },
+  "conll2014_test": {
+   "sentences": 1312,
+   "exact_matches": 0,
+   "normalised_matches_(>=20_chars)": 0
+  },
+  "jfleg_test": {
+   "sentences": 747,
+   "exact_matches": 0,
+   "normalised_matches_(>=20_chars)": 0
+  },
+  "c4_test_subset_5k": {
+   "sentences": 5000,
+   "exact_matches": 0,
+   "normalised_matches_(>=20_chars)": 0
+  }
+ },
+ "note": "Exact = identical tokenised source string; normalised = same lower-cased letters and digits, sentences of at least 20 such characters (short stock phrases excluded)."
+}

@@ -1,0 +1,524 @@
+{
+ "wi_essay_split": {
+  "pairs": 34308,
+  "essays": 3000,
+  "holdout_essays": 150,
+  "holdout_pairs": 1623,
+  "train_pairs": 32314,
+  "train_pairs_dropped_as_source_duplicates": 371,
+  "holdout_by_band": {
+   "A": {
+    "essays": 65,
+    "pairs": 519
+   },
+   "B": {
+    "essays": 50,
+    "pairs": 614
+   },
+   "C": {
+    "essays": 35,
+    "pairs": 490
+   }
+  },
+  "budget_train_pairs": {
+   "25": 8094,
+   "50": 16271
+  },
+  "rule": "5% of the essays of each band (seed 42); holdout essays and holdout source sentences excluded from training"
+ },
+ "train|nogate_e42": {
+  "stage": 2,
+  "gate": false,
+  "train_rows": 32314,
+  "steps": 1515,
+  "planned_steps": 1515,
+  "global_batch": 64,
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "warmup_steps": 90,
+  "train_seconds": 895.9,
+  "examples_per_s": 108.21,
+  "train_loss": 3.535329819984562,
+  "best_checkpoint": "/kaggle/working/ck_nogate_e42/checkpoint-1515",
+  "best_eval_loss": 3.4261789321899414,
+  "train_eval_loss_ratio": 1.0460082594334432,
+  "median_grad_norm": 0.8759009838104248
+ },
+ "tau|nogate_e42": {
+  "tau": 0.0,
+  "curve": {
+   "None": 0.4538,
+   "0.0": 0.4624,
+   "0.02": 0.4577,
+   "0.05": 0.437,
+   "0.1": 0.3659,
+   "0.15": 0.3022,
+   "0.2": 0.2316,
+   "0.3": 0.1323,
+   "0.5": 0.0226
+  }
+ },
+ "eval|nogate_e42": {
+  "c4|ref1_tau0.0": {
+   "P": 0.4599074787972244,
+   "R": 0.13273253226524254,
+   "F05": 0.308045858293741,
+   "TP": 2386,
+   "FP": 2802,
+   "FN": 15590,
+   "perfect": 3.9,
+   "improved": 25.8,
+   "unchanged": 45.02,
+   "lateral": 11.96,
+   "harm": 13.32,
+   "edited_pct": 54.98
+  },
+  "c4|ref1_taunone": {
+   "P": 0.4065166795965865,
+   "R": 0.14574988874054295,
+   "F05": 0.2993875125697048,
+   "TP": 2620,
+   "FP": 3825,
+   "FN": 15356,
+   "perfect": 4.06,
+   "improved": 27.16,
+   "unchanged": 35.36,
+   "lateral": 13.9,
+   "harm": 19.52,
+   "edited_pct": 64.64
+  },
+  "bea_dev|ref1_tau0.0": {
+   "TP": 1810,
+   "FP": 1542,
+   "FN": 5651,
+   "P": 0.54,
+   "R": 0.2426,
+   "F05": 0.4337
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 1948,
+   "FP": 1996,
+   "FN": 5513,
+   "P": 0.4939,
+   "R": 0.2611,
+   "F05": 0.4192
+  },
+  "conll|ref1_tau0.0": {
+   "P": 0.6689,
+   "R": 0.2891,
+   "F05": 0.5297
+  },
+  "conll|ref1_taunone": {
+   "P": 0.634,
+   "R": 0.3032,
+   "F05": 0.5204
+  },
+  "jfleg|ref1_tau0.0": {
+   "GLEU": 0.531363,
+   "std": 0.00829,
+   "ci95": "(0.515,0.548)"
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.535865,
+   "std": 0.008155,
+   "ci95": "(0.520,0.552)"
+  }
+ },
+ "done|nogate_s42": true,
+ "train|nogate_e1337": {
+  "stage": 2,
+  "gate": false,
+  "train_rows": 32314,
+  "steps": 1515,
+  "planned_steps": 1515,
+  "global_batch": 64,
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "warmup_steps": 90,
+  "train_seconds": 895.8,
+  "examples_per_s": 108.22,
+  "train_loss": 3.535716962656959,
+  "best_checkpoint": "/kaggle/working/ck_nogate_e1337/checkpoint-1515",
+  "best_eval_loss": 3.425123929977417,
+  "train_eval_loss_ratio": 1.0449398314657086,
+  "median_grad_norm": 0.8873895704746246
+ },
+ "tau|nogate_e1337": {
+  "tau": 0.0,
+  "curve": {
+   "None": 0.4465,
+   "0.0": 0.4621,
+   "0.02": 0.4557,
+   "0.05": 0.4369,
+   "0.1": 0.3641,
+   "0.15": 0.2994,
+   "0.2": 0.2363,
+   "0.3": 0.1284,
+   "0.5": 0.0288
+  }
+ },
+ "eval|nogate_e1337": {
+  "c4|ref1_tau0.0": {
+   "P": 0.4563886763580719,
+   "R": 0.13273253226524254,
+   "F05": 0.3067784406500719,
+   "TP": 2386,
+   "FP": 2842,
+   "FN": 15590,
+   "perfect": 3.94,
+   "improved": 25.64,
+   "unchanged": 44.56,
+   "lateral": 12.08,
+   "harm": 13.78,
+   "edited_pct": 55.44
+  },
+  "c4|ref1_taunone": {
+   "P": 0.40588870047787884,
+   "R": 0.14647307521139297,
+   "F05": 0.29972224751844095,
+   "TP": 2633,
+   "FP": 3854,
+   "FN": 15343,
+   "perfect": 4.12,
+   "improved": 27.0,
+   "unchanged": 34.96,
+   "lateral": 14.18,
+   "harm": 19.74,
+   "edited_pct": 65.04
+  },
+  "bea_dev|ref1_tau0.0": {
+   "TP": 1817,
+   "FP": 1570,
+   "FN": 5644,
+   "P": 0.5365,
+   "R": 0.2435,
+   "F05": 0.4324
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 1958,
+   "FP": 2008,
+   "FN": 5503,
+   "P": 0.4937,
+   "R": 0.2624,
+   "F05": 0.4197
+  },
+  "conll|ref1_tau0.0": {
+   "P": 0.6781,
+   "R": 0.2951,
+   "F05": 0.5384
+  },
+  "conll|ref1_taunone": {
+   "P": 0.6411,
+   "R": 0.3081,
+   "F05": 0.5271
+  },
+  "jfleg|ref1_tau0.0": {
+   "GLEU": 0.531903,
+   "std": 0.00827,
+   "ci95": "(0.516,0.548)"
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.536869,
+   "std": 0.008123,
+   "ci95": "(0.521,0.553)"
+  }
+ },
+ "done|nogate_s1337": true,
+ "train|nogate_e2024": {
+  "stage": 2,
+  "gate": false,
+  "train_rows": 32314,
+  "steps": 1515,
+  "planned_steps": 1515,
+  "global_batch": 64,
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "warmup_steps": 90,
+  "train_seconds": 893.2,
+  "examples_per_s": 108.53,
+  "train_loss": 3.535949696959442,
+  "best_checkpoint": "/kaggle/working/ck_nogate_e2024/checkpoint-1515",
+  "best_eval_loss": 3.4257326126098633,
+  "train_eval_loss_ratio": 1.0466736434470376,
+  "median_grad_norm": 0.9116557538509369
+ },
+ "tau|nogate_e2024": {
+  "tau": 0.0,
+  "curve": {
+   "None": 0.4471,
+   "0.0": 0.4591,
+   "0.02": 0.4553,
+   "0.05": 0.4291,
+   "0.1": 0.3668,
+   "0.15": 0.3025,
+   "0.2": 0.2331,
+   "0.3": 0.1345,
+   "0.5": 0.0226
+  }
+ },
+ "eval|nogate_e2024": {
+  "c4|ref1_tau0.0": {
+   "P": 0.45665515918680477,
+   "R": 0.13245438362260792,
+   "F05": 0.30657704985578904,
+   "TP": 2381,
+   "FP": 2833,
+   "FN": 15595,
+   "perfect": 3.96,
+   "improved": 25.64,
+   "unchanged": 44.96,
+   "lateral": 11.96,
+   "harm": 13.48,
+   "edited_pct": 55.04
+  },
+  "c4|ref1_taunone": {
+   "P": 0.40486827915575413,
+   "R": 0.14619492656875835,
+   "F05": 0.29904415111515703,
+   "TP": 2628,
+   "FP": 3863,
+   "FN": 15348,
+   "perfect": 4.08,
+   "improved": 27.26,
+   "unchanged": 35.04,
+   "lateral": 13.9,
+   "harm": 19.72,
+   "edited_pct": 64.96
+  },
+  "bea_dev|ref1_tau0.0": {
+   "TP": 1804,
+   "FP": 1567,
+   "FN": 5657,
+   "P": 0.5352,
+   "R": 0.2418,
+   "F05": 0.4307
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 1945,
+   "FP": 2019,
+   "FN": 5516,
+   "P": 0.4907,
+   "R": 0.2607,
+   "F05": 0.4171
+  },
+  "conll|ref1_tau0.0": {
+   "P": 0.6707,
+   "R": 0.2913,
+   "F05": 0.5321
+  },
+  "conll|ref1_taunone": {
+   "P": 0.6361,
+   "R": 0.3056,
+   "F05": 0.523
+  },
+  "jfleg|ref1_tau0.0": {
+   "GLEU": 0.533201,
+   "std": 0.00833,
+   "ci95": "(0.517,0.550)"
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.535729,
+   "std": 0.008211,
+   "ci95": "(0.520,0.552)"
+  }
+ },
+ "done|nogate_s2024": true,
+ "train|final_curve25": {
+  "stage": 2,
+  "gate": false,
+  "train_rows": 8094,
+  "steps": 381,
+  "planned_steps": 381,
+  "global_batch": 64,
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "warmup_steps": 22,
+  "train_seconds": 244.6,
+  "examples_per_s": 99.27,
+  "train_loss": 3.581439281073142,
+  "best_checkpoint": "/kaggle/working/ck_final_curve25/checkpoint-254",
+  "best_eval_loss": 3.4693732261657715,
+  "train_eval_loss_ratio": 1.052109239584123,
+  "median_grad_norm": 0.8253434896469116
+ },
+ "tau|final_curve25": {
+  "tau": 0.0,
+  "curve": {
+   "None": 0.4072,
+   "0.0": 0.4198,
+   "0.02": 0.3988,
+   "0.05": 0.3599,
+   "0.1": 0.2713,
+   "0.15": 0.2097,
+   "0.2": 0.155,
+   "0.3": 0.0566,
+   "0.5": 0.0082
+  }
+ },
+ "eval|final_curve25": {
+  "c4|ref1_tau0.0": {
+   "P": 0.5004262574595055,
+   "R": 0.1306186025812194,
+   "F05": 0.3195079468756803,
+   "TP": 2348,
+   "FP": 2344,
+   "FN": 15628,
+   "perfect": 4.32,
+   "improved": 26.22,
+   "unchanged": 47.98,
+   "lateral": 11.08,
+   "harm": 10.4,
+   "edited_pct": 52.02
+  },
+  "c4|ref1_taunone": {
+   "P": 0.4412709143146865,
+   "R": 0.14524922118380063,
+   "F05": 0.31349053885313616,
+   "TP": 2611,
+   "FP": 3306,
+   "FN": 15365,
+   "perfect": 4.46,
+   "improved": 27.94,
+   "unchanged": 38.02,
+   "lateral": 13.26,
+   "harm": 16.32,
+   "edited_pct": 61.98
+  },
+  "bea_dev|ref1_tau0.0": {
+   "TP": 1368,
+   "FP": 1206,
+   "FN": 6093,
+   "P": 0.5315,
+   "R": 0.1834,
+   "F05": 0.3852
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 1542,
+   "FP": 1722,
+   "FN": 5919,
+   "P": 0.4724,
+   "R": 0.2067,
+   "F05": 0.3758
+  },
+  "conll|ref1_tau0.0": {
+   "P": 0.6855,
+   "R": 0.2347,
+   "F05": 0.4952
+  },
+  "conll|ref1_taunone": {
+   "P": 0.6274,
+   "R": 0.2478,
+   "F05": 0.4802
+  },
+  "jfleg|ref1_tau0.0": {
+   "GLEU": 0.519666,
+   "std": 0.008235,
+   "ci95": "(0.504,0.536)"
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.522968,
+   "std": 0.008099,
+   "ci95": "(0.507,0.539)"
+  }
+ },
+ "done|curve25": true,
+ "train|final_curve50": {
+  "stage": 2,
+  "gate": false,
+  "train_rows": 16271,
+  "steps": 765,
+  "planned_steps": 765,
+  "global_batch": 64,
+  "micro_batch": 16,
+  "grad_accum": 2,
+  "warmup_steps": 45,
+  "train_seconds": 458.9,
+  "examples_per_s": 106.38,
+  "train_loss": 3.549358876546224,
+  "best_checkpoint": "/kaggle/working/ck_final_curve50/checkpoint-765",
+  "best_eval_loss": 3.447326183319092,
+  "train_eval_loss_ratio": 1.0438296210056865,
+  "median_grad_norm": 0.9102969765663147
+ },
+ "tau|final_curve50": {
+  "tau": 0.0,
+  "curve": {
+   "None": 0.4262,
+   "0.0": 0.4392,
+   "0.02": 0.4234,
+   "0.05": 0.3868,
+   "0.1": 0.3185,
+   "0.15": 0.2465,
+   "0.2": 0.1818,
+   "0.3": 0.0731,
+   "0.5": 0.0241
+  }
+ },
+ "eval|final_curve50": {
+  "c4|ref1_tau0.0": {
+   "P": 0.48620320855614974,
+   "R": 0.12644637294170005,
+   "F05": 0.30987566801177885,
+   "TP": 2273,
+   "FP": 2402,
+   "FN": 15703,
+   "perfect": 4.18,
+   "improved": 25.34,
+   "unchanged": 48.04,
+   "lateral": 11.46,
+   "harm": 10.98,
+   "edited_pct": 51.96
+  },
+  "c4|ref1_taunone": {
+   "P": 0.431175468483816,
+   "R": 0.14079884290164665,
+   "F05": 0.30526341181011196,
+   "TP": 2531,
+   "FP": 3339,
+   "FN": 15445,
+   "perfect": 4.26,
+   "improved": 27.06,
+   "unchanged": 37.9,
+   "lateral": 13.74,
+   "harm": 17.04,
+   "edited_pct": 62.1
+  },
+  "bea_dev|ref1_tau0.0": {
+   "TP": 1554,
+   "FP": 1324,
+   "FN": 5907,
+   "P": 0.54,
+   "R": 0.2083,
+   "F05": 0.4095
+  },
+  "bea_dev|ref1_taunone": {
+   "TP": 1729,
+   "FP": 1802,
+   "FN": 5732,
+   "P": 0.4897,
+   "R": 0.2317,
+   "F05": 0.4005
+  },
+  "conll|ref1_tau0.0": {
+   "P": 0.6786,
+   "R": 0.2636,
+   "F05": 0.5162
+  },
+  "conll|ref1_taunone": {
+   "P": 0.6334,
+   "R": 0.2771,
+   "F05": 0.5039
+  },
+  "jfleg|ref1_tau0.0": {
+   "GLEU": 0.528425,
+   "std": 0.008336,
+   "ci95": "(0.512,0.545)"
+  },
+  "jfleg|ref1_taunone": {
+   "GLEU": 0.531917,
+   "std": 0.008241,
+   "ci95": "(0.516,0.548)"
+  }
+ },
+ "done|curve50": true
+}

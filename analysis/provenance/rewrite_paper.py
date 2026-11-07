@@ -240,6 +240,21 @@ sub_runs(PAR[13], 'Grammar Error Correction (GEC)', 'Grammatical error correctio
 sub_runs(PAR[54], 'one GLEU point', 'one point of machine-translation GLEU')
 sub_runs(PAR[34], 'for the enhanced system', 'for the systems of Section 5')
 sub_runs(PAR[3], 'School Communications', 'School of Communications')
+# ---------------------------------------------------------------- Figure 1: redrawn version (approved 13 October 2026)
+import io
+from PIL import Image
+FIG1_NEW = f"{P_}/figures/figure1_v2.png"
+_blips = [b for b in PAR[42]._p.iter(qn("a:blip"))]
+assert len(_blips) == 1, "Figure 1 paragraph should hold exactly one picture"
+_img = d.part.related_parts[_blips[0].get(qn("r:embed"))]
+assert str(_img.partname).endswith("/image2.png"), _img.partname
+_old = Image.open(io.BytesIO(_img.blob)); assert _old.size == (1536, 1024), _old.size      # the original Figure 1
+_new = Image.open(FIG1_NEW).convert("RGB"); assert abs(_new.size[0] / _new.size[1] - 1.5) < 1e-6, _new.size
+_buf = io.BytesIO(); _new.save(_buf, "PNG", optimize=True); _img._blob = _buf.getvalue()
+print("Figure 1 replaced:", _old.size, "->", _new.size)
+# keep the full-resolution figure when Word saves or exports the document (no automatic picture compression)
+if d.settings.element.find(qn("w:doNotAutoCompressPictures")) is None:
+    d.settings.element.append(OxmlElement("w:doNotAutoCompressPictures"))
 # ---------------------------------------------------------------- 1. Introduction
 set_par(PAR[14],
     "We first compare four model families on the same data, test sample and evaluation pipeline: a TF-IDF unigram and "

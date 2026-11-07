@@ -1,0 +1,7 @@
+{
+ "round2_holdout_pairs": 1708,
+ "holdout_pairs_whose_essay_also_in_training": 1704,
+ "share": 0.9977,
+ "holdout_essays": 1243,
+ "note": "Notebook D held out 5% of unique source sentences; sibling sentences of the same essay stayed in training."
+}

@@ -1,49 +1,206 @@
 {
- "final": [
+ "round2/final": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg",
   "bea_test"
  ],
- "final_no_threshold": [
+ "round2/final_no_threshold": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg"
  ],
- "final_no_refinement": [
+ "round2/final_no_refinement": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg"
  ],
- "final_tau0.05": [
+ "round2/final_tau0.05": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg"
  ],
- "final_tau0.1": [
+ "round2/final_tau0.1": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg"
  ],
- "final_tau0.2": [
+ "round2/final_tau0.2": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg"
  ],
- "nogate_two_stage": [
+ "round2/nogate_two_stage": [
   "c4",
   "bea_dev",
   "conll",
   "jfleg"
  ],
- "nogate_two_stage_no_threshold": [
+ "round2/nogate_two_stage_no_threshold": [
   "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e42": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg",
+  "bea_test"
+ ],
+ "E/final_e42_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e42_no_refinement": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/nogate_e42": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/nogate_e42_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e1337": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg",
+  "bea_test"
+ ],
+ "E/final_e1337_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e1337_no_refinement": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/nogate_e1337": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/nogate_e1337_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e2024": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg",
+  "bea_test"
+ ],
+ "E/final_e2024_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e2024_no_refinement": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/nogate_e2024": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/nogate_e2024_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e42_tau0.05": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e42_tau0.1": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e42_tau0.2": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_e42_lp1.0": [
+  "c4",
+  "bea_dev",
+  "conll"
+ ],
+ "E/final_curve25": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/final_curve50": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/noedit_s1337_stage1": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/noedit_s1337_stage1_no_threshold": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/noedit_s1337_e1337": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "E/clean_s1337_e1337": [
+  "c4",
+  "bea_dev",
+  "conll",
+  "jfleg"
+ ],
+ "baselines/coedit-large": [
   "bea_dev",
   "conll",
   "jfleg"

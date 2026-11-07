@@ -1,0 +1,1125 @@
+{
+ "paper": "What Matters for a Compact Grammatical Error Corrector? Seed-Replicated Ablations of FLAN-T5-small with Little Human Data",
+ "pipeline": "corrected: loss averaged over gradient accumulation; stage-2 data = W&I+LOCNESS A, B, C files only; essay-level stage-2 holdout",
+ "scorers": {
+  "errant": "3.0.2 (verification; the notebooks pin errant==3.0.2)",
+  "spacy": "3.8.14 with en_core_web_sm 3.8.0 (verification)",
+  "m2": "third_party/m2scorer_py3 (Python-3 port of the official MaxMatch scorer)",
+  "gleu": "data/jfleg/gleu.py from keisks/jfleg (official), 4 references, 500 iterations",
+  "blind_test": "CodaBench competition 10960 (official BEA-2019 scorer); not computable locally",
+  "retokenisation": "analysis/retok.py: regex_tok for CoNLL-2014 and JFLEG, spacy_tok for BEA-2019"
+ },
+ "tables": {
+  "Table 1": {
+   "source": [
+    "results/notebooks/r2A_results_clean.json",
+    "results/notebooks/r2A_results_noisy.json",
+    "(c4_meta files: see notebooks/R2_A)"
+   ]
+  },
+  "Table 2": {
+   "runs": [
+    "N'/stage1",
+    "N'/stage2/s1337",
+    "N/stage1",
+    "N/stage2/s1337",
+    "N/stage2/s2024",
+    "N/stage2/s42",
+    "P'/stage1",
+    "P'/stage2/s1337",
+    "P/stage1",
+    "P/stage2/s1337",
+    "P/stage2/s2024",
+    "P/stage2/s42",
+    "P25/stage2/s42",
+    "P50/stage2/s42",
+    "U'/stage1",
+    "U/stage1"
+   ]
+  },
+  "Table 3": {
+   "Ours, primary": [
+    "E/final_e42",
+    "E/final_e1337",
+    "E/final_e2024"
+   ],
+   "Ours, stage 1 only": [
+    "final_stage1"
+   ],
+   "Qwen2.5-1.5B-Instruct, 4-shot": [
+    "baselines/qwen2.5-1.5b_fourshot"
+   ],
+   "CoEdIT-large": [
+    "baselines/coedit-large"
+   ],
+   "gec-t5-small-clang8": [
+    "baselines/gec-t5-small-clang8"
+   ],
+   "gec-t5-base-clang8": [
+    "baselines/gec-t5-base-clang8"
+   ],
+   "blind test": "results/bea19_test_codabench/E_primary/",
+   "comparisons": "results/verified/verified_scores.json: keys T3|*"
+  },
+  "Table 4": {
+   "comparisons": "results/verified/verified_scores.json: keys T4|* (Holm within T4); per-seed filtering T4s|*"
+  },
+  "Table 5": {
+   "25%": [
+    "E/final_curve25"
+   ],
+   "50%": [
+    "E/final_curve50"
+   ],
+   "100%": [
+    "E/final_e42"
+   ],
+   "comparisons": "keys T5|*"
+  },
+  "Table 6": {
+   "none": "E/final_e42_no_threshold",
+   "0": "E/final_e42",
+   "0.05": "E/final_e42_tau0.05",
+   "0.1": "E/final_e42_tau0.1",
+   "0.2": "E/final_e42_tau0.2"
+  },
+  "Table 7": {
+   "source": "results/human_eval/ (key and judgments; added once both annotators have finished)",
+   "system": "E/final_e42"
+  },
+  "Table 8": {
+   "dev": [
+    "E/final_e42",
+    "E/final_e1337",
+    "E/final_e2024"
+   ],
+   "test": "results/bea19_test_codabench/E_primary/bea19_test_scores_final_e*.json"
+  },
+  "Table 9": {
+   "source": "results/notebooks/r2E_results_session1.json: key latency",
+   "system": "P/stage2/s42"
+  }
+ },
+ "runs": {
+  "P/stage1": {
+   "notebook": "notebooks/R2_C_retrain_core.ipynb (job final)",
+   "sample": "filtered",
+   "identity_pairs": 172500,
+   "seed": 42,
+   "results_file": "results/notebooks/r2C_results_final.json",
+   "results_key": "train|final_s1",
+   "train_rows": 1322500,
+   "steps": 10333,
+   "planned_steps": 10333,
+   "global_batch": 128,
+   "best_checkpoint": "checkpoint-10333",
+   "best_eval_loss": 4.063785552978516,
+   "train_seconds": 12707.6,
+   "train_eval_loss_ratio": 1.110637275274566,
+   "median_grad_norm": 0.8366665840148926,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "final_stage1.zip",
+    "sha256": "b1d0088a85ae0c0c2f78e8f7897cd1d25d48b55b003291eb6ccc5f18737fe6c6"
+   }
+  },
+  "N/stage1": {
+   "notebook": "notebooks/R2_C_retrain_core.ipynb (job nogate)",
+   "sample": "filtered",
+   "identity_pairs": 0,
+   "seed": 42,
+   "results_file": "results/notebooks/r2C_results_nogate.json",
+   "results_key": "train|nogate_s1",
+   "train_rows": 1150000,
+   "steps": 8985,
+   "planned_steps": 8985,
+   "global_batch": 128,
+   "micro_batch": 16,
+   "grad_accum": 4,
+   "best_checkpoint": "checkpoint-7500",
+   "best_eval_loss": 4.039981842041016,
+   "train_seconds": 10889.7,
+   "train_eval_loss_ratio": 1.1653912579750794,
+   "median_grad_norm": 0.899619996547699,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "nogate_stage1.zip",
+    "sha256": "8de81cefb33115d83968a296327a51678f5b116b0882523293b5581ffa1885e3"
+   }
+  },
+  "P'/stage1": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 3, job s1_noedit_1337)",
+   "sample": "filtered",
+   "identity_pairs": 172500,
+   "seed": 1337,
+   "results_file": "results/notebooks/r2E_results_session3.json",
+   "results_key": "train|noedit_s1337",
+   "train_rows": 1322500,
+   "steps": 10333,
+   "planned_steps": 10333,
+   "global_batch": 128,
+   "micro_batch": 16,
+   "grad_accum": 4,
+   "best_checkpoint": "checkpoint-10333",
+   "best_eval_loss": 4.063405990600586,
+   "train_seconds": 12512.3,
+   "train_eval_loss_ratio": 1.1101337780668494,
+   "median_grad_norm": 0.9214151501655579,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "Pprime_stage1_s1337.zip",
+    "sha256": "95be3a4ad4d28a1ae89e37c2f9ae9e7a8421f3c6cf29f8ea3681c7f0cdd90951"
+   }
+  },
+  "N'/stage1": {
+   "notebook": "notebooks/R2_A_cleaning_full_budget.ipynb (clean, seed 1337)",
+   "sample": "filtered",
+   "identity_pairs": 0,
+   "seed": 1337,
+   "results_file": "results/notebooks/r2A_results_clean.json",
+   "results_key": "train|clean_s1337",
+   "train_rows": 1150000,
+   "steps": 8985,
+   "planned_steps": 8985,
+   "best_checkpoint": "checkpoint-8985",
+   "best_eval_loss": 4.040370464324951,
+   "train_seconds": 11005.6,
+   "train_eval_loss_ratio": 1.1659,
+   "train_eval_loss_ratio_note": "computed from the logged mean training loss and best validation loss (run predates the automatic check)",
+   "checkpoint_archive": null,
+   "checkpoint_archive_note": "stage-1 model of the filtering contrast; not archived"
+  },
+  "U/stage1": {
+   "notebook": "notebooks/R2_A_cleaning_full_budget.ipynb (noisy, seed 42)",
+   "sample": "unfiltered",
+   "identity_pairs": 0,
+   "seed": 42,
+   "results_file": "results/notebooks/r2A_results_noisy.json",
+   "results_key": "train|noisy_s42",
+   "train_rows": 1150000,
+   "steps": 8985,
+   "planned_steps": 8985,
+   "best_checkpoint": "checkpoint-8985",
+   "best_eval_loss": 4.13762903213501,
+   "train_seconds": 10973.1,
+   "train_eval_loss_ratio": 1.1621,
+   "train_eval_loss_ratio_note": "computed from the logged mean training loss and best validation loss (run predates the automatic check)",
+   "checkpoint_archive": null,
+   "checkpoint_archive_note": "stage-1 model of the filtering contrast; not archived"
+  },
+  "U'/stage1": {
+   "notebook": "notebooks/R2_A_cleaning_full_budget.ipynb (noisy, seed 1337)",
+   "sample": "unfiltered",
+   "identity_pairs": 0,
+   "seed": 1337,
+   "results_file": "results/notebooks/r2A_results_noisy.json",
+   "results_key": "train|noisy_s1337",
+   "train_rows": 1150000,
+   "steps": 8985,
+   "planned_steps": 8985,
+   "best_checkpoint": "checkpoint-8985",
+   "best_eval_loss": 4.137206554412842,
+   "train_seconds": 10947.7,
+   "train_eval_loss_ratio": 1.1621,
+   "train_eval_loss_ratio_note": "computed from the logged mean training loss and best validation loss (run predates the automatic check)",
+   "checkpoint_archive": null,
+   "checkpoint_archive_note": "stage-1 model of the filtering contrast; not archived"
+  },
+  "P/stage2/s42": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 1)",
+   "init": "P/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 42,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4447,
+    "0.0": 0.4565,
+    "0.02": 0.4507,
+    "0.05": 0.415,
+    "0.1": 0.3529,
+    "0.15": 0.271,
+    "0.2": 0.2058,
+    "0.3": 0.1112,
+    "0.5": 0.0194
+   },
+   "results_file": "results/notebooks/r2E_results_session1.json",
+   "results_key": "train|final_e42",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.4224650859832764,
+   "train_seconds": 862.5,
+   "train_eval_loss_ratio": 1.0421360323892248,
+   "median_grad_norm": 0.8586172461509705,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "P_stage2_s42.zip",
+    "sha256": "1660bb95b29645c581696f473c7e0de047139953b0cfc3fa043bcef30e34ab66"
+   }
+  },
+  "N/stage2/s42": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 2)",
+   "init": "N/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 42,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4538,
+    "0.0": 0.4624,
+    "0.02": 0.4577,
+    "0.05": 0.437,
+    "0.1": 0.3659,
+    "0.15": 0.3022,
+    "0.2": 0.2316,
+    "0.3": 0.1323,
+    "0.5": 0.0226
+   },
+   "results_file": "results/notebooks/r2E_results_session2.json",
+   "results_key": "train|nogate_e42",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.4261789321899414,
+   "train_seconds": 895.9,
+   "train_eval_loss_ratio": 1.0460082594334432,
+   "median_grad_norm": 0.8759009838104248,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "N_stage2_s42.zip",
+    "sha256": "bd485f125a10bbee3dc395859e19ae86435fad52404088dcc9e5e3e82f9c72da"
+   }
+  },
+  "P/stage2/s1337": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 1)",
+   "init": "P/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 1337,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4462,
+    "0.0": 0.4573,
+    "0.02": 0.4528,
+    "0.05": 0.4173,
+    "0.1": 0.3469,
+    "0.15": 0.2785,
+    "0.2": 0.2088,
+    "0.3": 0.1106,
+    "0.5": 0.0288
+   },
+   "results_file": "results/notebooks/r2E_results_session1.json",
+   "results_key": "train|final_e1337",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.4212491512298584,
+   "train_seconds": 866.2,
+   "train_eval_loss_ratio": 1.0414586371511039,
+   "median_grad_norm": 0.9362585246562958,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "P_stage2_s1337.zip",
+    "sha256": "644b566e9569b370ed249b6b93e412736bb8ee626d543221ae1064e0ba1864a6"
+   }
+  },
+  "N/stage2/s1337": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 2)",
+   "init": "N/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 1337,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4465,
+    "0.0": 0.4621,
+    "0.02": 0.4557,
+    "0.05": 0.4369,
+    "0.1": 0.3641,
+    "0.15": 0.2994,
+    "0.2": 0.2363,
+    "0.3": 0.1284,
+    "0.5": 0.0288
+   },
+   "results_file": "results/notebooks/r2E_results_session2.json",
+   "results_key": "train|nogate_e1337",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.425123929977417,
+   "train_seconds": 895.8,
+   "train_eval_loss_ratio": 1.0449398314657086,
+   "median_grad_norm": 0.8873895704746246,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "N_stage2_s1337.zip",
+    "sha256": "782eb7c69cca4bb3b6515980e353264d68955d1b2c3cfa34d0415db92e6e5e65"
+   }
+  },
+  "P/stage2/s2024": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 1)",
+   "init": "P/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 2024,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4396,
+    "0.0": 0.4523,
+    "0.02": 0.4434,
+    "0.05": 0.4111,
+    "0.1": 0.3454,
+    "0.15": 0.2646,
+    "0.2": 0.2034,
+    "0.3": 0.1166,
+    "0.5": 0.0226
+   },
+   "results_file": "results/notebooks/r2E_results_session1.json",
+   "results_key": "train|final_e2024",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1010",
+   "best_eval_loss": 3.4214439392089844,
+   "train_seconds": 862.9,
+   "train_eval_loss_ratio": 1.04367256791626,
+   "median_grad_norm": 0.9018523395061493,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "P_stage2_s2024.zip",
+    "sha256": "550236a329d7aaa61b5653d4276f88064bf80c74dd96641734c17e2d51a1664f"
+   }
+  },
+  "N/stage2/s2024": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 2)",
+   "init": "N/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 2024,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4471,
+    "0.0": 0.4591,
+    "0.02": 0.4553,
+    "0.05": 0.4291,
+    "0.1": 0.3668,
+    "0.15": 0.3025,
+    "0.2": 0.2331,
+    "0.3": 0.1345,
+    "0.5": 0.0226
+   },
+   "results_file": "results/notebooks/r2E_results_session2.json",
+   "results_key": "train|nogate_e2024",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.4257326126098633,
+   "train_seconds": 893.2,
+   "train_eval_loss_ratio": 1.0466736434470376,
+   "median_grad_norm": 0.9116557538509369,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "N_stage2_s2024.zip",
+    "sha256": "248431a1c0284af97093da16def79b2d6ac35e09f5cf62d9b4f8733904dd54f5"
+   }
+  },
+  "P'/stage2/s1337": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 3)",
+   "init": "P'/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 1337,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4468,
+    "0.0": 0.4576,
+    "0.02": 0.4482,
+    "0.05": 0.4181,
+    "0.1": 0.361,
+    "0.15": 0.2903,
+    "0.2": 0.2212,
+    "0.3": 0.1239,
+    "0.5": 0.0273
+   },
+   "results_file": "results/notebooks/r2E_results_session3.json",
+   "results_key": "train|noedit_s1337_e1337",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.42120099067688,
+   "train_seconds": 866.8,
+   "train_eval_loss_ratio": 1.0415632558885974,
+   "median_grad_norm": 0.8839315176010132,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "Pprime_stage2_s1337.zip",
+    "sha256": "00fc4cb259d1ba97fe318146a59cb925149568b952223b89008e4c9c3bf675a7"
+   }
+  },
+  "N'/stage2/s1337": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 3)",
+   "init": "N'/stage1",
+   "stage2_data": "splits/wi_sentence_essay.tsv minus splits/wi_holdout_essay_index.txt (32,314 pairs)",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 1337,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4418,
+    "0.0": 0.4557,
+    "0.02": 0.4498,
+    "0.05": 0.4278,
+    "0.1": 0.3664,
+    "0.15": 0.2961,
+    "0.2": 0.2288,
+    "0.3": 0.1283,
+    "0.5": 0.0272
+   },
+   "results_file": "results/notebooks/r2E_results_session3.json",
+   "results_key": "train|clean_s1337_e1337",
+   "train_rows": 32314,
+   "steps": 1515,
+   "planned_steps": 1515,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-1515",
+   "best_eval_loss": 3.4245758056640625,
+   "train_seconds": 864.4,
+   "train_eval_loss_ratio": 1.0449509732941473,
+   "median_grad_norm": 0.8943789601325989,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "Nprime_stage2_s1337.zip",
+    "sha256": "4d2f08bd55ffb9a4073010aac969fc703dfd2ffd09f04ecfcb9e18126338cc71"
+   }
+  },
+  "P25/stage2/s42": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 2)",
+   "init": "P/stage1",
+   "stage2_data": "25% of the training essays of each band (nested, seed 42): 8,094 pairs",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 42,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4072,
+    "0.0": 0.4198,
+    "0.02": 0.3988,
+    "0.05": 0.3599,
+    "0.1": 0.2713,
+    "0.15": 0.2097,
+    "0.2": 0.155,
+    "0.3": 0.0566,
+    "0.5": 0.0082
+   },
+   "results_file": "results/notebooks/r2E_results_session2.json",
+   "results_key": "train|final_curve25",
+   "train_rows": 8094,
+   "steps": 381,
+   "planned_steps": 381,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-254",
+   "best_eval_loss": 3.4693732261657715,
+   "train_seconds": 244.6,
+   "train_eval_loss_ratio": 1.052109239584123,
+   "median_grad_norm": 0.8253434896469116,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "P25_stage2_s42.zip",
+    "sha256": "502efaecccbd0fa87f7e4aafb68d4a7767df8528c6ca9aa0a504e679c34ed358"
+   }
+  },
+  "P50/stage2/s42": {
+   "notebook": "notebooks/R2_E_round3.ipynb (session 2)",
+   "init": "P/stage1",
+   "stage2_data": "50% of the training essays of each band (nested, seed 42): 16,271 pairs",
+   "holdout": "splits/wi_holdout_essay_index.txt",
+   "seed": 42,
+   "tau_selected_on_holdout": 0.0,
+   "tau_curve_holdout_F05": {
+    "None": 0.4262,
+    "0.0": 0.4392,
+    "0.02": 0.4234,
+    "0.05": 0.3868,
+    "0.1": 0.3185,
+    "0.15": 0.2465,
+    "0.2": 0.1818,
+    "0.3": 0.0731,
+    "0.5": 0.0241
+   },
+   "results_file": "results/notebooks/r2E_results_session2.json",
+   "results_key": "train|final_curve50",
+   "train_rows": 16271,
+   "steps": 765,
+   "planned_steps": 765,
+   "global_batch": 64,
+   "micro_batch": 16,
+   "grad_accum": 2,
+   "best_checkpoint": "checkpoint-765",
+   "best_eval_loss": 3.447326183319092,
+   "train_seconds": 458.9,
+   "train_eval_loss_ratio": 1.0438296210056865,
+   "median_grad_norm": 0.9102969765663147,
+   "checkpoint_archive": {
+    "record": "10.5281/zenodo.23328228 (all versions; version 2)",
+    "file": "P50_stage2_s42.zip",
+    "sha256": "49f3228c8acdbb2c46252c30f9237ef970b7b3a49d366b9edfdfe10c97df533f"
+   }
+  }
+ },
+ "systems": {
+  "E/final_e42": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42.txt",
+    "conll": "outputs/conll/E/final_e42.txt",
+    "jfleg": "outputs/jfleg/E/final_e42.txt",
+    "bea_test": "outputs/bea_test/E/final_e42.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42.tsv"
+   }
+  },
+  "E/final_e42_no_threshold": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42_no_threshold.txt",
+    "conll": "outputs/conll/E/final_e42_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/final_e42_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42_no_threshold.tsv"
+   }
+  },
+  "E/final_e42_no_refinement": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, no refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42_no_refinement.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42_no_refinement.txt",
+    "conll": "outputs/conll/E/final_e42_no_refinement.txt",
+    "jfleg": "outputs/jfleg/E/final_e42_no_refinement.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42_no_refinement.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42_no_refinement.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42_no_refinement.tsv"
+   }
+  },
+  "E/nogate_e42": {
+   "run": "N/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/nogate_e42.txt",
+    "bea_dev": "outputs/bea_dev/E/nogate_e42.txt",
+    "conll": "outputs/conll/E/nogate_e42.txt",
+    "jfleg": "outputs/jfleg/E/nogate_e42.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/nogate_e42.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/nogate_e42.tsv",
+    "conll": "results/per_sentence_counts/conll/E/nogate_e42.tsv"
+   }
+  },
+  "E/nogate_e42_no_threshold": {
+   "run": "N/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/nogate_e42_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/nogate_e42_no_threshold.txt",
+    "conll": "outputs/conll/E/nogate_e42_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/nogate_e42_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/nogate_e42_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/nogate_e42_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/nogate_e42_no_threshold.tsv"
+   }
+  },
+  "E/final_e1337": {
+   "run": "P/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e1337.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e1337.txt",
+    "conll": "outputs/conll/E/final_e1337.txt",
+    "jfleg": "outputs/jfleg/E/final_e1337.txt",
+    "bea_test": "outputs/bea_test/E/final_e1337.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e1337.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e1337.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e1337.tsv"
+   }
+  },
+  "E/final_e1337_no_threshold": {
+   "run": "P/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e1337_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e1337_no_threshold.txt",
+    "conll": "outputs/conll/E/final_e1337_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/final_e1337_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e1337_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e1337_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e1337_no_threshold.tsv"
+   }
+  },
+  "E/final_e1337_no_refinement": {
+   "run": "P/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, no refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e1337_no_refinement.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e1337_no_refinement.txt",
+    "conll": "outputs/conll/E/final_e1337_no_refinement.txt",
+    "jfleg": "outputs/jfleg/E/final_e1337_no_refinement.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e1337_no_refinement.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e1337_no_refinement.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e1337_no_refinement.tsv"
+   }
+  },
+  "E/nogate_e1337": {
+   "run": "N/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/nogate_e1337.txt",
+    "bea_dev": "outputs/bea_dev/E/nogate_e1337.txt",
+    "conll": "outputs/conll/E/nogate_e1337.txt",
+    "jfleg": "outputs/jfleg/E/nogate_e1337.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/nogate_e1337.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/nogate_e1337.tsv",
+    "conll": "results/per_sentence_counts/conll/E/nogate_e1337.tsv"
+   }
+  },
+  "E/nogate_e1337_no_threshold": {
+   "run": "N/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/nogate_e1337_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/nogate_e1337_no_threshold.txt",
+    "conll": "outputs/conll/E/nogate_e1337_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/nogate_e1337_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/nogate_e1337_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/nogate_e1337_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/nogate_e1337_no_threshold.tsv"
+   }
+  },
+  "E/final_e2024": {
+   "run": "P/stage2/s2024",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e2024.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e2024.txt",
+    "conll": "outputs/conll/E/final_e2024.txt",
+    "jfleg": "outputs/jfleg/E/final_e2024.txt",
+    "bea_test": "outputs/bea_test/E/final_e2024.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e2024.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e2024.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e2024.tsv"
+   }
+  },
+  "E/final_e2024_no_threshold": {
+   "run": "P/stage2/s2024",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e2024_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e2024_no_threshold.txt",
+    "conll": "outputs/conll/E/final_e2024_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/final_e2024_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e2024_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e2024_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e2024_no_threshold.tsv"
+   }
+  },
+  "E/final_e2024_no_refinement": {
+   "run": "P/stage2/s2024",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, no refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e2024_no_refinement.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e2024_no_refinement.txt",
+    "conll": "outputs/conll/E/final_e2024_no_refinement.txt",
+    "jfleg": "outputs/jfleg/E/final_e2024_no_refinement.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e2024_no_refinement.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e2024_no_refinement.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e2024_no_refinement.tsv"
+   }
+  },
+  "E/nogate_e2024": {
+   "run": "N/stage2/s2024",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/nogate_e2024.txt",
+    "bea_dev": "outputs/bea_dev/E/nogate_e2024.txt",
+    "conll": "outputs/conll/E/nogate_e2024.txt",
+    "jfleg": "outputs/jfleg/E/nogate_e2024.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/nogate_e2024.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/nogate_e2024.tsv",
+    "conll": "results/per_sentence_counts/conll/E/nogate_e2024.tsv"
+   }
+  },
+  "E/nogate_e2024_no_threshold": {
+   "run": "N/stage2/s2024",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/nogate_e2024_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/nogate_e2024_no_threshold.txt",
+    "conll": "outputs/conll/E/nogate_e2024_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/nogate_e2024_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/nogate_e2024_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/nogate_e2024_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/nogate_e2024_no_threshold.tsv"
+   }
+  },
+  "E/final_e42_tau0.05": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0.05",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42_tau0.05.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42_tau0.05.txt",
+    "conll": "outputs/conll/E/final_e42_tau0.05.txt",
+    "jfleg": "outputs/jfleg/E/final_e42_tau0.05.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42_tau0.05.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42_tau0.05.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42_tau0.05.tsv"
+   }
+  },
+  "E/final_e42_tau0.1": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0.1",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42_tau0.1.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42_tau0.1.txt",
+    "conll": "outputs/conll/E/final_e42_tau0.1.txt",
+    "jfleg": "outputs/jfleg/E/final_e42_tau0.1.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42_tau0.1.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42_tau0.1.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42_tau0.1.tsv"
+   }
+  },
+  "E/final_e42_tau0.2": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0.2",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42_tau0.2.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42_tau0.2.txt",
+    "conll": "outputs/conll/E/final_e42_tau0.2.txt",
+    "jfleg": "outputs/jfleg/E/final_e42_tau0.2.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42_tau0.2.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42_tau0.2.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42_tau0.2.tsv"
+   }
+  },
+  "E/final_e42_lp1.0": {
+   "run": "P/stage2/s42",
+   "decoding": "beam 5, length penalty 1.0, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_e42_lp1.0.txt",
+    "bea_dev": "outputs/bea_dev/E/final_e42_lp1.0.txt",
+    "conll": "outputs/conll/E/final_e42_lp1.0.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_e42_lp1.0.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_e42_lp1.0.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_e42_lp1.0.tsv"
+   }
+  },
+  "E/final_curve25": {
+   "run": "P25/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_curve25.txt",
+    "bea_dev": "outputs/bea_dev/E/final_curve25.txt",
+    "conll": "outputs/conll/E/final_curve25.txt",
+    "jfleg": "outputs/jfleg/E/final_curve25.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_curve25.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_curve25.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_curve25.tsv"
+   }
+  },
+  "E/final_curve50": {
+   "run": "P50/stage2/s42",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/final_curve50.txt",
+    "bea_dev": "outputs/bea_dev/E/final_curve50.txt",
+    "conll": "outputs/conll/E/final_curve50.txt",
+    "jfleg": "outputs/jfleg/E/final_curve50.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/final_curve50.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/final_curve50.tsv",
+    "conll": "results/per_sentence_counts/conll/E/final_curve50.tsv"
+   }
+  },
+  "E/noedit_s1337_stage1": {
+   "run": "P'/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/noedit_s1337_stage1.txt",
+    "bea_dev": "outputs/bea_dev/E/noedit_s1337_stage1.txt",
+    "conll": "outputs/conll/E/noedit_s1337_stage1.txt",
+    "jfleg": "outputs/jfleg/E/noedit_s1337_stage1.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/noedit_s1337_stage1.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/noedit_s1337_stage1.tsv",
+    "conll": "results/per_sentence_counts/conll/E/noedit_s1337_stage1.tsv"
+   }
+  },
+  "E/noedit_s1337_stage1_no_threshold": {
+   "run": "P'/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/E/noedit_s1337_stage1_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/E/noedit_s1337_stage1_no_threshold.txt",
+    "conll": "outputs/conll/E/noedit_s1337_stage1_no_threshold.txt",
+    "jfleg": "outputs/jfleg/E/noedit_s1337_stage1_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/noedit_s1337_stage1_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/noedit_s1337_stage1_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/E/noedit_s1337_stage1_no_threshold.tsv"
+   }
+  },
+  "E/noedit_s1337_e1337": {
+   "run": "P'/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/noedit_s1337_e1337.txt",
+    "bea_dev": "outputs/bea_dev/E/noedit_s1337_e1337.txt",
+    "conll": "outputs/conll/E/noedit_s1337_e1337.txt",
+    "jfleg": "outputs/jfleg/E/noedit_s1337_e1337.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/noedit_s1337_e1337.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/noedit_s1337_e1337.tsv",
+    "conll": "results/per_sentence_counts/conll/E/noedit_s1337_e1337.tsv"
+   }
+  },
+  "E/clean_s1337_e1337": {
+   "run": "N'/stage2/s1337",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/E/clean_s1337_e1337.txt",
+    "bea_dev": "outputs/bea_dev/E/clean_s1337_e1337.txt",
+    "conll": "outputs/conll/E/clean_s1337_e1337.txt",
+    "jfleg": "outputs/jfleg/E/clean_s1337_e1337.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/E/clean_s1337_e1337.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/E/clean_s1337_e1337.tsv",
+    "conll": "results/per_sentence_counts/conll/E/clean_s1337_e1337.tsv"
+   }
+  },
+  "final_stage1": {
+   "run": "P/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, tau 0",
+   "outputs": {
+    "c4": "outputs/c4/final_stage1.txt",
+    "bea_dev": "outputs/bea_dev/final_stage1.txt",
+    "conll": "outputs/conll/final_stage1.txt",
+    "jfleg": "outputs/jfleg/final_stage1.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/final_stage1.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/final_stage1.tsv",
+    "conll": "results/per_sentence_counts/conll/final_stage1.tsv"
+   }
+  },
+  "final_stage1_no_threshold": {
+   "run": "P/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/final_stage1_no_threshold.txt",
+    "bea_dev": "outputs/bea_dev/final_stage1_no_threshold.txt",
+    "conll": "outputs/conll/final_stage1_no_threshold.txt",
+    "jfleg": "outputs/jfleg/final_stage1_no_threshold.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/final_stage1_no_threshold.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/final_stage1_no_threshold.tsv",
+    "conll": "results/per_sentence_counts/conll/final_stage1_no_threshold.tsv"
+   }
+  },
+  "nogate_stage1": {
+   "run": "N/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/nogate_stage1.txt",
+    "bea_dev": "outputs/bea_dev/nogate_stage1.txt",
+    "conll": "outputs/conll/nogate_stage1.txt",
+    "jfleg": "outputs/jfleg/nogate_stage1.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/nogate_stage1.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/nogate_stage1.tsv",
+    "conll": "results/per_sentence_counts/conll/nogate_stage1.tsv"
+   }
+  },
+  "clean_s1337": {
+   "run": "N'/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/clean_s1337.txt",
+    "bea_dev": "outputs/bea_dev/clean_s1337.txt",
+    "conll": "outputs/conll/clean_s1337.txt",
+    "jfleg": "outputs/jfleg/clean_s1337.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/clean_s1337.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/clean_s1337.tsv",
+    "conll": "results/per_sentence_counts/conll/clean_s1337.tsv"
+   }
+  },
+  "noisy_s42": {
+   "run": "U/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/noisy_s42.txt",
+    "bea_dev": "outputs/bea_dev/noisy_s42.txt",
+    "conll": "outputs/conll/noisy_s42.txt",
+    "jfleg": "outputs/jfleg/noisy_s42.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/noisy_s42.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/noisy_s42.tsv",
+    "conll": "results/per_sentence_counts/conll/noisy_s42.tsv"
+   }
+  },
+  "noisy_s1337": {
+   "run": "U'/stage1",
+   "decoding": "beam 5, length penalty 0.7, no-repeat 3-gram, refinement, no threshold",
+   "outputs": {
+    "c4": "outputs/c4/noisy_s1337.txt",
+    "bea_dev": "outputs/bea_dev/noisy_s1337.txt",
+    "conll": "outputs/conll/noisy_s1337.txt",
+    "jfleg": "outputs/jfleg/noisy_s1337.txt"
+   },
+   "per_sentence_counts": {
+    "c4": "results/per_sentence_counts/c4/noisy_s1337.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/noisy_s1337.tsv",
+    "conll": "results/per_sentence_counts/conll/noisy_s1337.tsv"
+   }
+  },
+  "baselines/coedit-large": {
+   "model": "grammarly/coedit-large",
+   "revision": "5637bcdf9d8d4419f97c8cfea36f7d35c79232b6",
+   "prompt": "Fix grammatical errors in this sentence: <source>",
+   "decoding": "greedy, max_length=256 (model card)",
+   "notebook": "notebooks/R2_E_round3.ipynb (session 1, job coedit)",
+   "outputs": {
+    "bea_dev": "outputs/bea_dev/baselines/coedit-large.txt",
+    "conll": "outputs/conll/baselines/coedit-large.txt",
+    "jfleg": "outputs/jfleg/baselines/coedit-large.txt"
+   },
+   "per_sentence_counts": {
+    "bea_dev": "results/per_sentence_counts/bea_dev/baselines/coedit-large.tsv",
+    "conll": "results/per_sentence_counts/conll/baselines/coedit-large.tsv"
+   }
+  },
+  "baselines/gec-t5-small-clang8": {
+   "model": "gotutiyan/gec-t5-small-clang8",
+   "decoding": "gec_t5.generate defaults: beam 5, max_length 128, length_penalty 1.0, no prefix",
+   "notebook": "notebooks/R2_B_final_system_eval.ipynb",
+   "outputs": {
+    "conll": "outputs/conll/baselines/gec-t5-small-clang8.txt",
+    "bea_dev": "outputs/bea_dev/baselines/gec-t5-small-clang8.txt",
+    "jfleg": "outputs/jfleg/baselines/gec-t5-small-clang8.txt"
+   },
+   "per_sentence_counts": {
+    "conll": "results/per_sentence_counts/conll/baselines/gec-t5-small-clang8.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/baselines/gec-t5-small-clang8.tsv"
+   }
+  },
+  "baselines/gec-t5-base-clang8": {
+   "model": "gotutiyan/gec-t5-base-clang8",
+   "decoding": "gec_t5.generate defaults: beam 5, max_length 128, length_penalty 1.0, no prefix",
+   "notebook": "notebooks/R2_B_final_system_eval.ipynb",
+   "outputs": {
+    "conll": "outputs/conll/baselines/gec-t5-base-clang8.txt",
+    "bea_dev": "outputs/bea_dev/baselines/gec-t5-base-clang8.txt",
+    "jfleg": "outputs/jfleg/baselines/gec-t5-base-clang8.txt"
+   },
+   "per_sentence_counts": {
+    "conll": "results/per_sentence_counts/conll/baselines/gec-t5-base-clang8.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/baselines/gec-t5-base-clang8.tsv"
+   }
+  },
+  "baselines/qwen2.5-1.5b_fourshot": {
+   "model": "Qwen/Qwen2.5-1.5B-Instruct",
+   "config": "configs/qwen_baseline.json",
+   "notebook": "notebooks/R2_B_final_system_eval.ipynb",
+   "outputs": {
+    "conll": "outputs/conll/baselines/qwen2.5-1.5b_fourshot.txt",
+    "bea_dev": "outputs/bea_dev/baselines/qwen2.5-1.5b_fourshot.txt"
+   },
+   "per_sentence_counts": {
+    "conll": "results/per_sentence_counts/conll/baselines/qwen2.5-1.5b_fourshot.tsv",
+    "bea_dev": "results/per_sentence_counts/bea_dev/baselines/qwen2.5-1.5b_fourshot.tsv"
+   }
+  }
+ }
+}

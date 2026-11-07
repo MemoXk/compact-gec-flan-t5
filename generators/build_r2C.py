@@ -21,7 +21,10 @@ import nb_common as C
 # ported m2scorer (Python 3.13 has no lib2to3)
 buf = io.BytesIO()
 with tarfile.open(fileobj=buf, mode="w") as t:
-    t.add(os.path.join(SCR, "eval", "m2scorer"), arcname="m2scorer")
+    # the ported scorer: the original scratch copy, or the identical copy kept in the public package
+    M2_DIR = next(d for d in (os.path.join(SCR, "eval", "m2scorer"),
+                              os.path.join(P, "release", "compact-gec-flan-t5", "third_party", "m2scorer_py3")) if os.path.isdir(d))
+    t.add(M2_DIR, arcname="m2scorer")
 C.DATA = C.DATA.replace("__M2_PORTED_B64__", base64.b64encode(gzip.compress(buf.getvalue())).decode())
 assert "__M2_PORTED_B64__" not in C.DATA
 

@@ -1,7 +1,7 @@
 {
  "title": "Compact GEC with FLAN-T5-small: code, splits, outputs and analyses",
  "upload_type": "software",
- "description": "Code, configurations, data splits, system outputs and analysis results for 'Rethinking FLAN-T5 for Grammatical Error Correction: Controlled Baselines, Full-Budget Ablations and Two-Stage Transfer with Little Human Data' (M. A. ElTaweel and N. Negied). Includes the Kaggle notebooks, the C4-200M split indices, the W&I+LOCNESS stage-2 holdout indices, all system outputs as scored, official-scorer results with paired bootstraps, and a portable verification script.",
+ "description": "Code, configurations, data splits, system outputs, per-sentence edit counts, a run manifest and analysis results for 'What Matters for a Compact Grammatical Error Corrector? Seed-Replicated Ablations of FLAN-T5-small with Little Human Data' (M. A. ElTaweel and N. Negied). Includes the Kaggle notebooks, the C4-200M split indices, the essay-level W&I+LOCNESS split, all system outputs as scored, official-scorer results with paired bootstraps, and a portable verification script.",
  "creators": [
   {
    "name": "ElTaweel, Mohammed A.",
@@ -19,12 +19,13 @@
   "synthetic data",
   "low-resource fine-tuning",
   "ablation study",
-  "BEA-2019"
+  "BEA-2019",
+  "human evaluation"
  ],
  "access_right": "open",
  "related_identifiers": [
   {
-   "identifier": "10.5281/zenodo.23328229",
+   "identifier": "10.5281/zenodo.23328228",
    "relation": "isSupplementedBy",
    "scheme": "doi",
    "resource_type": "other"

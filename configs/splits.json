@@ -4,20 +4,40 @@
   "per_shard_kept": 120000,
   "kept_total": 1200000,
   "split_seed": 42,
-  "split_sizes": {"train": 1150000, "val": 25000, "test": 25000},
-  "split_index_files": ["splits/c4_split_index_clean.tsv.gz", "splits/c4_split_index_noisy.tsv.gz"],
+  "split_sizes": {
+   "train": 1150000,
+   "val": 25000,
+   "test": 25000
+  },
+  "split_index_files": [
+   "splits/c4_split_index_clean.tsv.gz",
+   "splits/c4_split_index_noisy.tsv.gz"
+  ],
   "clean_test_sha256": "6f724bdbb7d1321ed3011158d06ca49cb0672291bdd9c4d258c3a26ca0e3440d",
   "clean_test_sha256_definition": "sha256 of '\\n'.join(f'{src}\\t{tgt}') over the 25,000 cleaned test pairs in split order (UTF-8)",
-  "in_domain_subset": {"file": "splits/c4_test_subset_5k.tsv", "rule": "np.sort(np.random.default_rng(2026).permutation(25000)[:5000])"},
-  "no_edit_pairs": {"fraction_of_train": 0.15, "sampling": "np.random.default_rng(42 + 13).choice(1150000, 172500, replace=False)", "shuffle_seed": "42 + 7"}
+  "in_domain_subset": {
+   "file": "splits/c4_test_subset_5k.tsv",
+   "rule": "np.sort(np.random.default_rng(2026).permutation(25000)[:5000])",
+   "uncontaminated_rows": "splits/c4_test_subset_uncontaminated.txt (626 rows absent from both training splits)"
+  },
+  "no_edit_pairs": {
+   "fraction_of_train": 0.15,
+   "sampling": "np.random.default_rng(42 + 13).choice(1150000, 172500, replace=False)",
+   "shuffle_seed": "42 + 7"
+  }
  },
  "wi_locness": {
   "release": "W&I+LOCNESS v2.1 (BEA-2019 shared task)",
-  "stage2_train_files": ["A.train.gold.bea19.m2", "B.train.gold.bea19.m2", "C.train.gold.bea19.m2"],
+  "stage2_train_files": [
+   "A.train.gold.bea19.m2",
+   "B.train.gold.bea19.m2",
+   "C.train.gold.bea19.m2"
+  ],
   "reconstruction": "apply every edit of annotator 0 to the source",
   "pairs": 34308,
-  "holdout": "5% of the unique source sentences: np.random.default_rng(42).permutation(len(sorted(set(sources)))); no source in both parts",
-  "holdout_index_file": "splits/wi_holdout_index.txt"
+  "holdout": "essay-level: every sentence aligned to its essay in the JSON release (splits/wi_sentence_essay.tsv); 5% of the essays of each band held out with numpy.random.default_rng(42); training pairs whose source occurs in a held-out essay removed",
+  "holdout_index_file": "splits/wi_holdout_essay_index.txt",
+  "round2_sentence_level_holdout_superseded": "splits/round2_wi_holdout_index_sentence_level.txt"
  },
  "benchmarks": {
   "conll2014_test": "conll14st-test-data/noalt/official-2014.combined.m2 (1,312 sentences, 2 annotators)",

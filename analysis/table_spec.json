@@ -1,19 +1,330 @@
 [
- {"table": "T4", "name": "cleaning_seed42", "a": "nogate_stage1", "b": "noisy_s42", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "cleaning_seed1337", "a": "clean_s1337", "b": "noisy_s1337", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "seed_1337_vs_42_clean", "a": "clean_s1337", "b": "nogate_stage1", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "noedit_stage1", "a": "final_stage1_no_threshold", "b": "nogate_stage1", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "noedit_two_stage", "a": "final", "b": "nogate_two_stage", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "copy_gate_earlier_config", "a": "earlier_config/copy_gate", "b": "earlier_config/no_gate", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "human_data_stage", "a": "nogate_two_stage_no_threshold", "b": "nogate_stage1", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "threshold_tau0", "a": "final", "b": "final_no_threshold", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "refinement", "a": "final", "b": "final_no_refinement", "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T4", "name": "length_penalty_0.7_vs_1.0", "a": {"c4": "earlier_config/stage1_lp0.7", "bea_dev": "earlier_config/final", "conll": "earlier_config/final"},
-  "b": {"c4": "earlier_config/stage1_lp1.0", "bea_dev": "earlier_config/final_lp1.0", "conll": "earlier_config/final_lp1.0"}, "benchmarks": ["c4", "bea_dev", "conll"]},
- {"table": "T6", "name": "final_vs_qwen_fourshot", "a": "final", "b": "baselines/qwen2.5-1.5b_fourshot", "benchmarks": ["bea_dev", "conll"]},
- {"table": "T6", "name": "final_vs_qwen_zeroshot", "a": "final", "b": "baselines/qwen2.5-1.5b_zeroshot", "benchmarks": ["bea_dev", "conll"]},
- {"table": "T6", "name": "final_vs_gec_t5_small", "a": "final", "b": "baselines/gec-t5-small-clang8", "benchmarks": ["bea_dev", "conll"]},
- {"table": "T6", "name": "final_vs_gec_t5_base", "a": "final", "b": "baselines/gec-t5-base-clang8", "benchmarks": ["bea_dev", "conll"]},
- {"table": "S58", "name": "final_vs_earlier_config_final", "a": "final", "b": "earlier_config/final", "benchmarks": ["bea_dev", "conll"]},
- {"table": "S58", "name": "final_vs_superseded_dupstage2", "a": "final", "b": "superseded/final_dupstage2", "benchmarks": ["c4", "bea_dev", "conll"]}
+ {
+  "table": "T4",
+  "name": "human_data_stage",
+  "pairs": [
+   [
+    "E/final_e42",
+    "final_stage1"
+   ],
+   [
+    "E/final_e1337",
+    "final_stage1"
+   ],
+   [
+    "E/final_e2024",
+    "final_stage1"
+   ],
+   [
+    "E/noedit_s1337_e1337",
+    "E/noedit_s1337_stage1"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4",
+  "name": "noedit_two_stage",
+  "pairs": [
+   [
+    "E/final_e42",
+    "E/nogate_e42"
+   ],
+   [
+    "E/final_e1337",
+    "E/nogate_e1337"
+   ],
+   [
+    "E/final_e2024",
+    "E/nogate_e2024"
+   ],
+   [
+    "E/noedit_s1337_e1337",
+    "E/clean_s1337_e1337"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4",
+  "name": "noedit_stage1",
+  "pairs": [
+   [
+    "final_stage1_no_threshold",
+    "nogate_stage1"
+   ],
+   [
+    "E/noedit_s1337_stage1_no_threshold",
+    "clean_s1337"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4",
+  "name": "threshold_tau0",
+  "pairs": [
+   [
+    "E/final_e42",
+    "E/final_e42_no_threshold"
+   ],
+   [
+    "E/final_e1337",
+    "E/final_e1337_no_threshold"
+   ],
+   [
+    "E/final_e2024",
+    "E/final_e2024_no_threshold"
+   ],
+   [
+    "E/nogate_e42",
+    "E/nogate_e42_no_threshold"
+   ],
+   [
+    "E/nogate_e1337",
+    "E/nogate_e1337_no_threshold"
+   ],
+   [
+    "E/nogate_e2024",
+    "E/nogate_e2024_no_threshold"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4",
+  "name": "refinement",
+  "pairs": [
+   [
+    "E/final_e42",
+    "E/final_e42_no_refinement"
+   ],
+   [
+    "E/final_e1337",
+    "E/final_e1337_no_refinement"
+   ],
+   [
+    "E/final_e2024",
+    "E/final_e2024_no_refinement"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4",
+  "name": "length_penalty_0.7_vs_1.0",
+  "pairs": [
+   [
+    "E/final_e42",
+    "E/final_e42_lp1.0"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4",
+  "name": "cleaning_pooled",
+  "pairs": [
+   [
+    "nogate_stage1",
+    "noisy_s42"
+   ],
+   [
+    "clean_s1337",
+    "noisy_s1337"
+   ]
+  ],
+  "benchmarks": [
+   "c4"
+  ],
+  "subset": "c4_uncontaminated"
+ },
+ {
+  "table": "T4",
+  "name": "cleaning_pooled_learner",
+  "pairs": [
+   [
+    "nogate_stage1",
+    "noisy_s42"
+   ],
+   [
+    "clean_s1337",
+    "noisy_s1337"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4s",
+  "name": "cleaning_nogate_stage1_learner",
+  "pairs": [
+   [
+    "nogate_stage1",
+    "noisy_s42"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T4s",
+  "name": "cleaning_clean_s1337_learner",
+  "pairs": [
+   [
+    "clean_s1337",
+    "noisy_s1337"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T5",
+  "name": "budget_50_vs_25",
+  "pairs": [
+   [
+    "E/final_curve50",
+    "E/final_curve25"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T5",
+  "name": "budget_100_vs_50",
+  "pairs": [
+   [
+    "E/final_e42",
+    "E/final_curve50"
+   ]
+  ],
+  "benchmarks": [
+   "c4",
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T3",
+  "name": "final_vs_coedit_large",
+  "pairs": [
+   [
+    "E/final_e42",
+    "baselines/coedit-large"
+   ],
+   [
+    "E/final_e1337",
+    "baselines/coedit-large"
+   ],
+   [
+    "E/final_e2024",
+    "baselines/coedit-large"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T3",
+  "name": "final_vs_gec_t5_small",
+  "pairs": [
+   [
+    "E/final_e42",
+    "baselines/gec-t5-small-clang8"
+   ],
+   [
+    "E/final_e1337",
+    "baselines/gec-t5-small-clang8"
+   ],
+   [
+    "E/final_e2024",
+    "baselines/gec-t5-small-clang8"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T3",
+  "name": "final_vs_gec_t5_base",
+  "pairs": [
+   [
+    "E/final_e42",
+    "baselines/gec-t5-base-clang8"
+   ],
+   [
+    "E/final_e1337",
+    "baselines/gec-t5-base-clang8"
+   ],
+   [
+    "E/final_e2024",
+    "baselines/gec-t5-base-clang8"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ },
+ {
+  "table": "T3",
+  "name": "final_vs_qwen_fourshot",
+  "pairs": [
+   [
+    "E/final_e42",
+    "baselines/qwen2.5-1.5b_fourshot"
+   ],
+   [
+    "E/final_e1337",
+    "baselines/qwen2.5-1.5b_fourshot"
+   ],
+   [
+    "E/final_e2024",
+    "baselines/qwen2.5-1.5b_fourshot"
+   ]
+  ],
+  "benchmarks": [
+   "bea_dev",
+   "conll"
+  ]
+ }
 ]

@@ -1,0 +1,849 @@
+{
+ "source": "CodaBench competition 10960 (BEA-2019 blind test, open phase), span-level correction, transcribed from the user's screenshots of each submission's LOGS (scores.txt) and VISUALIZATION pages; F0.5 recomputed from TP/FP/FN and matching to 2 decimals",
+ "submitted": "2026-11-05 11:37 WET (list view shows 13:35 local time)",
+ "system": "Notebook E final arm (stage 1 clean + 15% no-edit pairs; stage 2 on the essay-level W&I+LOCNESS split; beam 5, length penalty 0.7, one refinement pass, tau 0.0)",
+ "submissions": {
+  "final_e42": {
+   "codabench_id": 1035236,
+   "file": "bea19_test_submission_final_e42.zip",
+   "TP": 1991,
+   "FP": 975,
+   "FN": 2946,
+   "P": 67.13,
+   "R": 40.33,
+   "F05": 59.25,
+   "span_detection": {
+    "TP": 2318,
+    "FP": 654,
+    "FN": 2845,
+    "P": 77.99,
+    "R": 44.9,
+    "F05": 67.97
+   },
+   "token_detection": {
+    "TP": 2844,
+    "FP": 525,
+    "FN": 3262,
+    "P": 84.42,
+    "R": 46.58,
+    "F05": 72.62
+   }
+  },
+  "final_e1337": {
+   "codabench_id": 1035237,
+   "file": "bea19_test_submission_final_e1337.zip",
+   "TP": 2022,
+   "FP": 970,
+   "FN": 2927,
+   "P": 67.58,
+   "R": 40.86,
+   "F05": 59.76,
+   "span_detection": {
+    "TP": 2340,
+    "FP": 658,
+    "FN": 2836,
+    "P": 78.05,
+    "R": 45.21,
+    "F05": 68.15
+   },
+   "token_detection": {
+    "TP": 2864,
+    "FP": 535,
+    "FN": 3261,
+    "P": 84.26,
+    "R": 46.76,
+    "F05": 72.61
+   }
+  },
+  "final_e2024": {
+   "codabench_id": 1035238,
+   "file": "bea19_test_submission_final_e2024.zip",
+   "TP": 2002,
+   "FP": 971,
+   "FN": 2921,
+   "P": 67.34,
+   "R": 40.67,
+   "F05": 59.53,
+   "span_detection": {
+    "TP": 2322,
+    "FP": 657,
+    "FN": 2820,
+    "P": 77.95,
+    "R": 45.16,
+    "F05": 68.06
+   },
+   "token_detection": {
+    "TP": 2854,
+    "FP": 525,
+    "FN": 3246,
+    "P": 84.46,
+    "R": 46.79,
+    "F05": 72.75
+   }
+  }
+ },
+ "summary_F05": {
+  "mean": 59.51,
+  "sd": 0.26,
+  "min": 59.25,
+  "max": 59.76,
+  "n_seeds": 3
+ },
+ "for_reference": {
+  "round2_dedup_sentence_level_holdout": 59.63,
+  "superseded_duplicated_stage2": 60.12,
+  "earlier_june_config": 59.09
+ },
+ "per_level_and_error_type": {
+  "final_e42": "codabench_final_e42/bea19_test_scores_final_e42.json",
+  "final_e1337": "codabench_final_e1337/bea19_test_scores_final_e1337.json",
+  "final_e2024": "codabench_final_e2024/bea19_test_scores_final_e2024.json",
+  "source_zips": {
+   "final_e42": "scoring_result (2).zip",
+   "final_e1337": "scoring_result (3).zip (4 = duplicate)",
+   "final_e2024": "scoring_result (5).zip"
+  },
+  "per_level_F05": {
+   "ALL": {
+    "values": [
+     59.25,
+     59.76,
+     59.53
+    ],
+    "mean": 59.51,
+    "sd": 0.26
+   },
+   "A (beginner)": {
+    "values": [
+     57.5,
+     57.97,
+     57.78
+    ],
+    "mean": 57.75,
+    "sd": 0.24
+   },
+   "B (intermediate)": {
+    "values": [
+     59.12,
+     59.27,
+     58.81
+    ],
+    "mean": 59.07,
+    "sd": 0.23
+   },
+   "C (advanced)": {
+    "values": [
+     61.52,
+     62.58,
+     62.73
+    ],
+    "mean": 62.28,
+    "sd": 0.66
+   },
+   "N (native)": {
+    "values": [
+     62.53,
+     63.26,
+     62.94
+    ],
+    "mean": 62.91,
+    "sd": 0.37
+   }
+  },
+  "error_types_F05_3seeds": {
+   "ADJ": {
+    "values": [
+     30.49,
+     31.65,
+     23.44
+    ],
+    "mean": 28.53,
+    "sd": 4.44
+   },
+   "ADJ:FORM": {
+    "values": [
+     58.82,
+     75.0,
+     62.5
+    ],
+    "mean": 65.44,
+    "sd": 8.48
+   },
+   "ADV": {
+    "values": [
+     26.32,
+     23.26,
+     27.17
+    ],
+    "mean": 25.58,
+    "sd": 2.06
+   },
+   "CONJ": {
+    "values": [
+     19.23,
+     0.0,
+     15.15
+    ],
+    "mean": 11.46,
+    "sd": 10.13
+   },
+   "CONTR": {
+    "values": [
+     39.47,
+     39.47,
+     50.0
+    ],
+    "mean": 42.98,
+    "sd": 6.08
+   },
+   "DET": {
+    "values": [
+     67.08,
+     65.89,
+     66.27
+    ],
+    "mean": 66.41,
+    "sd": 0.61
+   },
+   "M:ADJ": {
+    "values": [
+     71.43,
+     71.43,
+     55.56
+    ],
+    "mean": 66.14,
+    "sd": 9.16
+   },
+   "M:ADV": {
+    "values": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "M:CONJ": {
+    "values": [
+     26.32,
+     0.0,
+     31.25
+    ],
+    "mean": 19.19,
+    "sd": 16.8
+   },
+   "M:DET": {
+    "values": [
+     68.31,
+     67.72,
+     67.18
+    ],
+    "mean": 67.74,
+    "sd": 0.57
+   },
+   "M:NOUN": {
+    "values": [
+     7.58,
+     7.81,
+     8.62
+    ],
+    "mean": 8.0,
+    "sd": 0.55
+   },
+   "M:NOUN:POSS": {
+    "values": [
+     45.45,
+     38.46,
+     40.0
+    ],
+    "mean": 41.3,
+    "sd": 3.67
+   },
+   "M:OTHER": {
+    "values": [
+     37.19,
+     31.25,
+     33.61
+    ],
+    "mean": 34.02,
+    "sd": 2.99
+   },
+   "M:PART": {
+    "values": [
+     62.5,
+     62.5,
+     62.5
+    ],
+    "mean": 62.5,
+    "sd": 0.0
+   },
+   "M:PREP": {
+    "values": [
+     45.3,
+     46.44,
+     47.11
+    ],
+    "mean": 46.28,
+    "sd": 0.92
+   },
+   "M:PRON": {
+    "values": [
+     57.52,
+     52.04,
+     56.65
+    ],
+    "mean": 55.4,
+    "sd": 2.95
+   },
+   "M:PUNCT": {
+    "values": [
+     79.57,
+     79.87,
+     79.57
+    ],
+    "mean": 79.67,
+    "sd": 0.17
+   },
+   "M:VERB": {
+    "values": [
+     48.25,
+     51.55,
+     53.92
+    ],
+    "mean": 51.24,
+    "sd": 2.85
+   },
+   "M:VERB:FORM": {
+    "values": [
+     68.42,
+     65.66,
+     71.43
+    ],
+    "mean": 68.5,
+    "sd": 2.89
+   },
+   "M:VERB:TENSE": {
+    "values": [
+     30.61,
+     40.82,
+     32.26
+    ],
+    "mean": 34.56,
+    "sd": 5.48
+   },
+   "MORPH": {
+    "values": [
+     51.47,
+     55.07,
+     53.98
+    ],
+    "mean": 53.51,
+    "sd": 1.85
+   },
+   "NOUN": {
+    "values": [
+     17.91,
+     20.38,
+     22.44
+    ],
+    "mean": 20.24,
+    "sd": 2.27
+   },
+   "NOUN:INFL": {
+    "values": [
+     94.44,
+     93.02,
+     94.44
+    ],
+    "mean": 93.97,
+    "sd": 0.82
+   },
+   "NOUN:NUM": {
+    "values": [
+     67.02,
+     66.46,
+     66.98
+    ],
+    "mean": 66.82,
+    "sd": 0.31
+   },
+   "NOUN:POSS": {
+    "values": [
+     56.82,
+     59.26,
+     58.39
+    ],
+    "mean": 58.16,
+    "sd": 1.24
+   },
+   "ORTH": {
+    "values": [
+     51.11,
+     52.02,
+     51.39
+    ],
+    "mean": 51.51,
+    "sd": 0.47
+   },
+   "OTHER": {
+    "values": [
+     22.46,
+     22.61,
+     22.56
+    ],
+    "mean": 22.54,
+    "sd": 0.08
+   },
+   "PART": {
+    "values": [
+     60.61,
+     61.8,
+     61.86
+    ],
+    "mean": 61.42,
+    "sd": 0.71
+   },
+   "PREP": {
+    "values": [
+     54.84,
+     56.5,
+     55.73
+    ],
+    "mean": 55.69,
+    "sd": 0.83
+   },
+   "PRON": {
+    "values": [
+     54.88,
+     52.11,
+     54.55
+    ],
+    "mean": 53.85,
+    "sd": 1.51
+   },
+   "PUNCT": {
+    "values": [
+     74.59,
+     75.28,
+     74.6
+    ],
+    "mean": 74.82,
+    "sd": 0.4
+   },
+   "R:ADJ": {
+    "values": [
+     10.64,
+     11.36,
+     12.82
+    ],
+    "mean": 11.61,
+    "sd": 1.11
+   },
+   "R:ADJ:FORM": {
+    "values": [
+     58.82,
+     75.0,
+     62.5
+    ],
+    "mean": 65.44,
+    "sd": 8.48
+   },
+   "R:ADV": {
+    "values": [
+     18.52,
+     20.83,
+     21.28
+    ],
+    "mean": 20.21,
+    "sd": 1.48
+   },
+   "R:CONJ": {
+    "values": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "R:CONTR": {
+    "values": [
+     47.62,
+     47.62,
+     47.62
+    ],
+    "mean": 47.62,
+    "sd": 0.0
+   },
+   "R:DET": {
+    "values": [
+     37.36,
+     39.77,
+     40.7
+    ],
+    "mean": 39.28,
+    "sd": 1.72
+   },
+   "R:MORPH": {
+    "values": [
+     51.47,
+     55.07,
+     53.98
+    ],
+    "mean": 53.51,
+    "sd": 1.85
+   },
+   "R:NOUN": {
+    "values": [
+     17.95,
+     21.62,
+     23.44
+    ],
+    "mean": 21.0,
+    "sd": 2.8
+   },
+   "R:NOUN:INFL": {
+    "values": [
+     94.44,
+     93.02,
+     94.44
+    ],
+    "mean": 93.97,
+    "sd": 0.82
+   },
+   "R:NOUN:NUM": {
+    "values": [
+     67.02,
+     66.46,
+     66.98
+    ],
+    "mean": 66.82,
+    "sd": 0.31
+   },
+   "R:NOUN:POSS": {
+    "values": [
+     60.81,
+     64.1,
+     56.34
+    ],
+    "mean": 60.42,
+    "sd": 3.89
+   },
+   "R:ORTH": {
+    "values": [
+     51.11,
+     52.02,
+     51.39
+    ],
+    "mean": 51.51,
+    "sd": 0.47
+   },
+   "R:OTHER": {
+    "values": [
+     21.6,
+     21.49,
+     21.74
+    ],
+    "mean": 21.61,
+    "sd": 0.13
+   },
+   "R:PART": {
+    "values": [
+     65.48,
+     67.57,
+     67.07
+    ],
+    "mean": 66.71,
+    "sd": 1.09
+   },
+   "R:PREP": {
+    "values": [
+     52.47,
+     55.64,
+     54.07
+    ],
+    "mean": 54.06,
+    "sd": 1.59
+   },
+   "R:PRON": {
+    "values": [
+     36.46,
+     37.63,
+     36.08
+    ],
+    "mean": 36.72,
+    "sd": 0.81
+   },
+   "R:PUNCT": {
+    "values": [
+     54.62,
+     56.07,
+     56.38
+    ],
+    "mean": 55.69,
+    "sd": 0.94
+   },
+   "R:SPELL": {
+    "values": [
+     61.27,
+     64.0,
+     63.18
+    ],
+    "mean": 62.82,
+    "sd": 1.4
+   },
+   "R:VERB": {
+    "values": [
+     11.79,
+     12.2,
+     11.42
+    ],
+    "mean": 11.8,
+    "sd": 0.39
+   },
+   "R:VERB:FORM": {
+    "values": [
+     70.54,
+     70.32,
+     71.43
+    ],
+    "mean": 70.76,
+    "sd": 0.59
+   },
+   "R:VERB:INFL": {
+    "values": [
+     87.5,
+     79.55,
+     87.5
+    ],
+    "mean": 84.85,
+    "sd": 4.59
+   },
+   "R:VERB:SVA": {
+    "values": [
+     73.49,
+     73.55,
+     73.81
+    ],
+    "mean": 73.62,
+    "sd": 0.17
+   },
+   "R:VERB:TENSE": {
+    "values": [
+     37.09,
+     36.27,
+     38.56
+    ],
+    "mean": 37.31,
+    "sd": 1.16
+   },
+   "R:WO": {
+    "values": [
+     29.8,
+     32.89,
+     28.85
+    ],
+    "mean": 30.51,
+    "sd": 2.11
+   },
+   "SPELL": {
+    "values": [
+     61.27,
+     64.0,
+     63.18
+    ],
+    "mean": 62.82,
+    "sd": 1.4
+   },
+   "U:ADJ": {
+    "values": [
+     47.62,
+     47.62,
+     31.25
+    ],
+    "mean": 42.16,
+    "sd": 9.45
+   },
+   "U:ADV": {
+    "values": [
+     60.0,
+     47.62,
+     51.72
+    ],
+    "mean": 53.11,
+    "sd": 6.31
+   },
+   "U:CONJ": {
+    "values": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "U:CONTR": {
+    "values": [
+     38.46,
+     38.46,
+     55.56
+    ],
+    "mean": 44.16,
+    "sd": 9.87
+   },
+   "U:DET": {
+    "values": [
+     70.75,
+     68.33,
+     69.3
+    ],
+    "mean": 69.46,
+    "sd": 1.22
+   },
+   "U:NOUN": {
+    "values": [
+     27.03,
+     28.57,
+     32.26
+    ],
+    "mean": 29.29,
+    "sd": 2.69
+   },
+   "U:NOUN:POSS": {
+    "values": [
+     55.56,
+     64.52,
+     73.17
+    ],
+    "mean": 64.42,
+    "sd": 8.81
+   },
+   "U:OTHER": {
+    "values": [
+     13.76,
+     23.81,
+     18.18
+    ],
+    "mean": 18.58,
+    "sd": 5.04
+   },
+   "U:PART": {
+    "values": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "mean": 0.0,
+    "sd": 0.0
+   },
+   "U:PREP": {
+    "values": [
+     70.42,
+     69.93,
+     69.44
+    ],
+    "mean": 69.93,
+    "sd": 0.49
+   },
+   "U:PRON": {
+    "values": [
+     68.18,
+     67.42,
+     70.59
+    ],
+    "mean": 68.73,
+    "sd": 1.66
+   },
+   "U:PUNCT": {
+    "values": [
+     65.53,
+     67.5,
+     66.96
+    ],
+    "mean": 66.66,
+    "sd": 1.02
+   },
+   "U:VERB": {
+    "values": [
+     49.3,
+     44.87,
+     46.67
+    ],
+    "mean": 46.95,
+    "sd": 2.23
+   },
+   "U:VERB:FORM": {
+    "values": [
+     80.65,
+     74.07,
+     85.71
+    ],
+    "mean": 80.14,
+    "sd": 5.84
+   },
+   "U:VERB:TENSE": {
+    "values": [
+     57.69,
+     53.85,
+     57.14
+    ],
+    "mean": 56.23,
+    "sd": 2.08
+   },
+   "VERB": {
+    "values": [
+     28.97,
+     28.95,
+     29.04
+    ],
+    "mean": 28.99,
+    "sd": 0.05
+   },
+   "VERB:FORM": {
+    "values": [
+     70.69,
+     69.86,
+     72.08
+    ],
+    "mean": 70.88,
+    "sd": 1.12
+   },
+   "VERB:INFL": {
+    "values": [
+     87.5,
+     79.55,
+     87.5
+    ],
+    "mean": 84.85,
+    "sd": 4.59
+   },
+   "VERB:SVA": {
+    "values": [
+     73.49,
+     73.55,
+     73.81
+    ],
+    "mean": 73.62,
+    "sd": 0.17
+   },
+   "VERB:TENSE": {
+    "values": [
+     38.89,
+     39.16,
+     39.89
+    ],
+    "mean": 39.31,
+    "sd": 0.52
+   },
+   "WO": {
+    "values": [
+     29.8,
+     32.89,
+     28.85
+    ],
+    "mean": 30.51,
+    "sd": 2.11
+   }
+  }
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "n_items": 175,
+ "agreement": {
+  "verdict": {
+   "percent_agreement": 91.4,
+   "cohen_kappa": 0.618,
+   "kappa_ci95": [
+    0.433,
+    0.774
+   ],
+   "confusion": {
+    "better|better": 147,
+    "better|same": 8,
+    "better|worse": 1,
+    "same|same": 7,
+    "worse|better": 4,
+    "worse|same": 2,
+    "worse|worse": 6
+   }
+  },
+  "meaning": {
+   "percent_agreement": 100.0,
+   "cohen_kappa": 1.0,
+   "kappa_ci95": [
+    1.0,
+    1.0
+   ],
+   "confusion": {
+    "no|no": 9,
+    "yes|yes": 166
+   }
+  }
+ },
+ "per_stratum": {
+  "perfect": {
+   "n": 25,
+   "population": 312,
+   "A": {
+    "better": 1.0,
+    "same": 0.0,
+    "worse": 0.0
+   },
+   "B": {
+    "better": 1.0,
+    "same": 0.0,
+    "worse": 0.0
+   },
+   "mean": {
+    "better": 1.0,
+    "same": 0.0,
+    "worse": 0.0
+   },
+   "meaning_kept_mean": 1.0
+  },
+  "improved": {
+   "n": 50,
+   "population": 759,
+   "A": {
+    "better": 1.0,
+    "same": 0.0,
+    "worse": 0.0
+   },
+   "B": {
+    "better": 0.98,
+    "same": 0.0,
+    "worse": 0.02
+   },
+   "mean": {
+    "better": 0.99,
+    "same": 0.0,
+    "worse": 0.01
+   },
+   "meaning_kept_mean": 0.96
+  },
+  "lateral": {
+   "n": 50,
+   "population": 207,
+   "A": {
+    "better": 0.88,
+    "same": 0.02,
+    "worse": 0.1
+   },
+   "B": {
+    "better": 0.88,
+    "same": 0.08,
+    "worse": 0.04
+   },
+   "mean": {
+    "better": 0.88,
+    "same": 0.05,
+    "worse": 0.07
+   },
+   "meaning_kept_mean": 0.94
+  },
+  "harm": {
+   "n": 50,
+   "population": 454,
+   "A": {
+    "better": 0.74,
+    "same": 0.12,
+    "worse": 0.14
+   },
+   "B": {
+    "better": 0.66,
+    "same": 0.26,
+    "worse": 0.08
+   },
+   "mean": {
+    "better": 0.7,
+    "same": 0.19,
+    "worse": 0.11
+   },
+   "meaning_kept_mean": 0.92
+  }
+ },
+ "population_estimate_all_edited": {
+  "better": 0.903,
+  "same": 0.056,
+  "worse": 0.042,
+  "meaning_kept": 0.954
+ },
+ "automatic_harm_judged_not_worse": 0.89,
+ "population_estimate_ci95": {
+  "better": [
+   0.87,
+   0.933
+  ],
+  "same": [
+   0.032,
+   0.082
+  ],
+  "worse": [
+   0.02,
+   0.066
+  ],
+  "meaning_kept": [
+   0.92,
+   0.983
+  ]
+ },
+ "automatic_harm_judged_not_worse_ci95": [
+  0.81,
+  0.96
+ ],
+ "automatic_harm_share_of_edited": 0.262,
+ "uncertainty_note": "95% percentile intervals from 2,000 stratified bootstrap resamples of items (within strata, annotator pairs kept); sampling variability of the 175 items only",
+ "note": "Verdicts are about the system output relative to the original sentence. Population = the 1,732 BEA-2019 dev sentences that Notebook E final_e42 edited; weights = stratum shares of that population."
+}

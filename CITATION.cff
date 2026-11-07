@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this code or these results, please cite them as below."
 type: software
 title: "Compact GEC with FLAN-T5-small: code, splits, outputs and analyses"
-version: 1.0.0
+version: 1.1.0
 license: MIT
 repository-code: "https://github.com/MemoXk/compact-gec-flan-t5"
 doi: 10.5281/zenodo.23326147

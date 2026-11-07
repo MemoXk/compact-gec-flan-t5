@@ -1,0 +1,22 @@
+{
+ "system": "Notebook E final_e42, column ref1_tau0.0",
+ "population_edited_sentences": 1732,
+ "population_by_stratum": {
+  "harm": 454,
+  "improved": 759,
+  "lateral": 207,
+  "perfect": 312
+ },
+ "sample_by_stratum": {
+  "harm": 50,
+  "lateral": 50,
+  "improved": 50,
+  "perfect": 25
+ },
+ "dev_sentences": 4384,
+ "seeds": {
+  "stratum_sampling": 2026,
+  "shuffle": 7,
+  "order": 31
+ }
+}
